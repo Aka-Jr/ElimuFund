@@ -1,16 +1,20 @@
 import './App.css';
-// Slider os the name of the class and slider is the name of the file
 import NavBar from './NavBar';
 import './styles.css';
 import Home from './pages/home';
+import Footer from './Footer';
+
 
 
 
 function App() {
   return(
     <div>  
+    
       <NavBar />
       <Home />
+      <Footer />
+      
 
     </div>
   )
