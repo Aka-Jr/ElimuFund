@@ -1,23 +1,24 @@
+import logo from './logo.svg';
 import './App.css';
-// Slider os the name of the class and slider is the name of the file
-import NavBar from './NavBar';
-import './styles.css';
-import Home from './pages/home';
-
-
 
 function App() {
-  return(
-    <div>  
-      <NavBar />
-      <Home />
-
+  return (
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
     </div>
-  )
-  
- 
-  
-  // <Home />
-  
+  );
 }
 export default App;
