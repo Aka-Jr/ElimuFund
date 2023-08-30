@@ -1,7 +1,12 @@
-import NavBar from "../NavBar";
-
-const Home = () => {
-    return <h1>Welcome at Login Page</h1>;
+import { FaSearch, FaHome, FaUser } from 'react-icons/fa';
+const Login = () => {
+    return(
+        <div>
+        <FaSearch />
+        <FaHome />
+        <FaUser />
+      </div>
+    );
 }
 
-export default Home;
+export default Login;
