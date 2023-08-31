@@ -1,5 +1,3 @@
-.logo{
-  background-color: green;
 
 .logo{
 
@@ -7,14 +5,8 @@
   align-items: center;
   justify-content: center;
  }
-  padding: 10px;
-}
-
-
-.logo span{
-  font-size: 24px;
-  font-weight: bold;
-}
+  /* padding: 10px;
+} */
 
 .dual-color{
   background: linear-gradient(to right, rgb(233, 230, 230) 50%, rgb(9, 61, 2) 50%);
