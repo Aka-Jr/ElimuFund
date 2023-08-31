@@ -14,3 +14,48 @@
   -webkit-background-clip: text;
   color: transparent;
 }
+
+.university-details{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.cards{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 2rem;
+  text-align: center;
+}
+.approved{
+  background-color: #43d02a;
+  border-radius: 10px;
+  padding: 10px;
+}
+.submitted{
+  background-color: blueviolet;
+  border-radius: 10px;
+  padding: 10px;
+}
+.rejected{
+  background-color: red;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+
+
+.add-student{
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+}
+
+.add-student-button{
+  background-color: #43d02a;
+  border-radius: 10px;
+  border-color: orange;
+ }
+
