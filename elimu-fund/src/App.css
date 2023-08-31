@@ -1,22 +1,29 @@
 .otp-field{
-  width: 38px;
+  width: 30px;
   margin-right: 10px;
   padding-left: 12px;
-  height: 40px;
+  height: 30px;
     display:table-row;
     place-items: center;
-    background-color: #ffffff;
+    background-color: #D9D9D9;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  font-size: 30px;
+  font-size: 20px;
   
+}
+.container h2{
+color: #215732;
+text-align: center;
 }
 
 .row {
   display: grid;
   place-items:center;
   justify-content: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
 .btn {
@@ -32,8 +39,60 @@
   cursor: pointer;
   font-size: 16px;
   align-content: center;
+  display: block; 
+  margin: 0 auto;
 }
 
 .container{
  place-items:center ;
+}
+
+.university-boxes {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+/* Style for individual box */
+.box {
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Style for text inside the box */
+.box p {
+  margin: 0;
+  font-weight: bold;
+}
+
+/* Style for input field */
+.box input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-top: 8px;
+}
+
+/* ... Previous styles ... */
+
+.submit-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}
+
+.container .link{
+  color: #0056b3;
 }

@@ -18,17 +18,23 @@ const OTPbox = () => {
 
 
     return(
-        <>
+        // <>
+        <div>
         <header title="make otp box"/>
         <div className="row">
             <div className="container">
-                <h2>verify your institution Registration</h2>
+                <h2>Verify your institution Registration</h2>
                 <p>We sent you a code to the institution email  you provided  
                     please enter the code below</p>
+
+                    {/* <p>Enter code {otp.join("")}</p> */}
+
+                    
 
 {
     otp.map((data,index) => {
         return (
+           
         <input 
         className="otp-field"
         type="text"
@@ -38,12 +44,15 @@ const OTPbox = () => {
         value={data}
         onChange={e => handleChange (e.target, index)}
         onFocus={e => e.target.select()}
-        />);
+        />
+            
+        );
     })
+
 }
 
-<p>Enter code {otp.join("")}</p>
-<h4>Didn’t get code? Resend</h4>
+{/* <p>Enter code {otp.join("")}</p> */}
+<h4>Didn’t get code? <span className="link">Resend</span></h4>
 <p>
     <button className="btn">
         verify
@@ -52,7 +61,9 @@ const OTPbox = () => {
 
             </div>
         </div>
-        </>
+        {/* </> */}
+     </div>
     )
+    
 }
 export default OTPbox;
