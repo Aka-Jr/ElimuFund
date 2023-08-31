@@ -1,0 +1,276 @@
+*{
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+/* .nav-div{
+    padding: 0;
+    background-color: blue;
+    width: 100%;
+    height: 30%;
+} */
+
+/* @media (max-width: 768px){
+    .nav-element{
+      flex-direction: column;
+      
+      align-items: center;
+     
+    }
+} */
+
+@media (max-width: 768px){
+  .top{
+  
+    width: fit-content;
+  }}
+.top{
+  margin: 0;
+  width: 100%;
+  height: fit-content;
+  background-color: #43d02a;
+}
+.navBar{
+    margin: 3rem;
+    padding: 1rem;
+    background-color: #dee9dc;
+    display: flex;
+    color: white;
+    border-radius: 50px;
+    justify-content: center;
+}
+
+@media (max-width: 768px){
+  .nav-Bar li{
+  
+    width: fit-content;
+  }}
+.nav-element{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-link{
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.language{
+  color: black;
+  font-weight: bold;
+}
+
+.nav-element li:hover{
+background-color: white;
+color: black;
+/* padding: 6px;
+transition: padding 0.3s, font-size 0.3s; */
+
+}
+
+.nav-student{
+  width: 647px ;
+  height:380px;
+  margin-left: 4rem;
+  display: flex;
+}
+
+@media (max-width: 768px){
+  .nav-student{
+  
+    width: fit-content;
+  }
+  }
+
+.student-image{
+  width: 100%;
+  height: 100%;
+
+}
+
+.root{
+    display:flex;
+    flex-direction:row;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+    }
+    
+    @media (max-width: 768px){
+      .root{
+        flex-direction: column;
+      }
+    }
+    
+    @media (max-width: 768px){
+      .card{
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+        margin-bottom: 50px;
+        /* margin-left: 50px; */
+      }
+    }
+    .card{
+     border: 1px solid #43d02a;
+     padding-left: 1px;
+     /* margin-right: 10px; */
+     margin-left: 2rem;
+     border-radius: 10px;
+     text-align: center;
+     height: fit-content;
+     width:308px;
+
+     /* width: 25%; */
+     
+    
+    }
+    
+    .card-header{
+      /* border: 1px solid #43d02a;
+      border-radius: 20px; */
+      padding: 5px;
+      height: 20%;
+    
+    }
+    
+    .card-header p{
+      color: #2a43d0;
+      font-size: larger;
+      font-weight: bold;
+      
+      }
+    
+    .card-header-testimonies{
+      /* border: 1px solid #43d02a;
+      border-radius: 50%; */
+      padding: 5px;
+      height: 30%;
+    
+    }
+    
+    .card-header-testimonies p{
+    color: #2a43d0;
+    font-size: larger;
+    font-weight: bold;
+    
+    }
+    
+    .donate-btn{
+      width: 100%;
+      height: 50px;
+      border-radius: 10px;
+      border: none;
+      background-color: #43d02a;
+      font-weight: bold;
+      font-size: larger;
+      color: white;
+    
+    }
+    
+    .card-img{
+      width: 100%;
+      height: 100%;
+    }
+    
+    .fund-progress{
+      width: 50%;
+      border-radius: 5px;
+      height: 15px;
+      margin-bottom: 2rem;
+      background-color: white;
+      border: none;
+    }
+    
+    .fund-progress::-webkit-progress-value{
+      background-color:#43d02a ;
+      border-radius: 5px;
+      height: 7px;
+    }
+    
+    .fund-progress::-webkit-progress-bar{
+      background-color: #ecd8d8;
+      border-radius: 5px;
+      height: 15px;
+    }
+    
+    @media (max-width: 768px){
+      .fund-progress::before{
+        width: fit-content;
+        text-align: center;
+        
+      }
+    }
+    .fund-progress::before{
+      content:  attr(value) "% " "fund raised";
+      /* position: 2rem; */
+      /* text-align: center; */
+      width: fit-content;
+      /* right: 0; */
+      /* top: 2rem; */
+      font-size: large;
+      font-weight: bold;
+      color: rgb(0, 0, 0);
+    
+    }
+    
+    .ongoing-campaign{
+      text-align: center;
+      font-size: larger;
+      font-weight: bold;
+      margin-top: 50px;
+      margin-bottom: 50px;
+    }
+    
+    
+    .testimonies{
+      text-align: center;
+      font-size: larger;
+      font-weight: bold;
+      margin-top: 50px;
+      margin-bottom: 50px;
+    }
+    
+    /* footer */
+    .footer{
+      display:flex;
+      padding: 10px;
+     
+      height: 20%; 
+      width: 100%;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      text-align: center;
+      margin-top: 10%;
+      background-color: aliceblue;
+      justify-content: space-around;
+      }
+      
+      @media (max-width: 768px){
+        .footer{
+          flex-direction: column;
+        }
+      }
+    
+      .footer-component{
+        padding: 5px;
+        margin-right: 15px;
+        margin-left: 10px;
+        border-radius: 10px;
+        text-align: center;
+        height: fit-content;
+        /* width: 25%; */
+      }
+
+      .footer-component ul{
+        list-style: none;
+        align-items: center;
+      }
