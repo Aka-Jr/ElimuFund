@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import MobileNavbar from './MobileNavbar';
 
-import React from "react";
 
 
 const NavBar = () => {
@@ -11,14 +11,21 @@ const NavBar = () => {
         <div class ="logo">
             <span class="dual-color">ELIMUFUND</span>
         </div>
+            <MobileNavbar/>
             <nav className =" navBar">
                 <ul className = "nav-element">
-                    <li className=" nav-link">Search</li>
+                    <li className="search-icon">Search</li>
                     <li><Link className=" nav-link" to="/">Home</Link></li>
                     <li><Link className=" nav-link" to="/about">About Us</Link></li>
                     <li><Link className=" nav-link" to="/faqs">FAQs</Link></li>
                     <li><Link className=" nav-link" to="/login">Login</Link></li>
-                    <li class ="language">Language</li>
+                    <li className ="language-dropdown">Language
+                        <ul className="language-dropdown-content">
+                            <li>English</li>
+                            <li>Swahili</li>
+                        </ul>
+                    
+                    </li>
                 </ul>
             </nav>
             

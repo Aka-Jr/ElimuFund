@@ -6,33 +6,20 @@ body {
     margin: 0;
 }
 
-/* .nav-div{
-    padding: 0;
-    background-color: blue;
-    width: 100%;
-    height: 30%;
-} */
 
 /* @media (max-width: 768px){
-    .nav-element{
-      flex-direction: column;
-      
-      align-items: center;
-     
-    }
-} */
-
-@media (max-width: 768px){
   .top{
   
     width: fit-content;
-  }}
+  }} */
 .top{
   margin: 0;
   width: 100%;
   height: fit-content;
   background-color: #43d02a;
 }
+
+
 .navBar{
     margin: 3rem;
     padding: 1rem;
@@ -44,9 +31,9 @@ body {
 }
 
 @media (max-width: 768px){
-  .nav-Bar li{
+  .nav-element{
   
-    width: fit-content;
+    flex-direction: column;
   }}
 .nav-element{
     list-style: none;
@@ -62,12 +49,98 @@ body {
     font-weight: bold;
 }
 
-.language{
+@media (max-width: 768px){
+  .navBar{
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .mobile-navbar {
+    display: block;
+    text-align: right;
+    background-color: #43d02a;
+    transition: opacity 0.3s ease-in-out;
+    overflow: hidden;
+  }
+}
+
+@media (min-width: 769px) {
+  .mobile-navbar {
+    display: none;
+  }
+}
+
+.mobile-navbar.show{
+  opacity: 1;
+}
+
+.mobile-navbar .nav-element{
+  text-align: center;
+}
+
+.mobile-navbar .nav-link{
+  color:white;
+  font-weight: bold;
+}
+
+.mobile-navbar .search-icon{
+  color:white;
+  font-weight: bold;
+}
+
+.mobile-navbar .language-dropdown{
+  color:white;
+  font-weight: bold;
+}
+
+.mobile-navIcon.show {
+  transform: rotate(90deg);
+}
+
+
+/* .mobile-navIcon{
+  background-color: blue;
+  transition: color 0.3s ease-in-out;
+} */
+
+
+.search-icon{
   color: black;
   font-weight: bold;
 }
 
-.nav-element li:hover{
+.search-icon:hover{
+  cursor: pointer;
+}
+
+.language-dropdown{
+  color: black;
+  font-weight: bold;
+  position: relative;
+  cursor: pointer;
+}
+
+.language-dropdown-content{
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); */
+  z-index: 1;
+}
+
+.language-dropdown:hover .language-dropdown-content{
+  display: block;
+  background-color: #dee9dc;
+}
+
+.language-dropdown-content li{
+padding: 10px;
+list-style: none;
+}
+
+.nav-link:hover{
 background-color: white;
 color: black;
 /* padding: 6px;
@@ -84,8 +157,9 @@ transition: padding 0.3s, font-size 0.3s; */
 
 @media (max-width: 768px){
   .nav-student{
-  
-    width: fit-content;
+  width: auto;
+  height: auto;
+  margin: auto;
   }
   }
 
