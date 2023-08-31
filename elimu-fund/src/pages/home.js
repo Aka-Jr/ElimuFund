@@ -1,5 +1,5 @@
-import NavBar from "../NavBar";
-
+import React from "react";
+import Footer from "../Footer";
 const Home = () => {
     return (
     
@@ -119,33 +119,7 @@ const Home = () => {
 </div>
 
 
-<footer class="footer">
-      <div class="footer-component" id="contacts">
-        <p><b>Contact us</b></p>
-        <ul >
-          <li>info@elimufund.co.tz</li>
-          <li>+255700020029</li>
-          <li>74 Ally sykes Road, Dar Es Salaam</li>
-        </ul>
-      </div>
-      <div class="footer-component" id="terms">
-        
-        <ul>
-          <li>Terms</li>
-          <li>Privacy notice</li>
-          <li>Legal</li>
-        </ul>
-      </div>
-      <div class="footer-component" id="social-media">
-        <p><b>Social Media</b></p>
-        <ul>
-          <li>Youtube</li>
-          <li>Instagram</li>
-          <li>Facebook</li>
-          <li>X</li>
-        </ul>
-      </div>
-    </footer>
+      <Footer />
 
     </div>
     

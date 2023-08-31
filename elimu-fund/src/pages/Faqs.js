@@ -1,7 +1,13 @@
-import NavBar from "../NavBar";
+import Footer from "../Footer"
 
-const Home = () => {
-    return <h1>Welcome at FAQs Page</h1>;
+const Faqs = () => {
+    return (
+    <div>
+        <h1>Welcom this is FAQs Page</h1>
+        <Footer />
+    </div>)
+     
+    
 }
 
-export default Home;
+export default Faqs;

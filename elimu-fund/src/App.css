@@ -1,11 +1,27 @@
 .logo{
   background-color: green;
+
+.logo{
+
   display: flex;
   align-items: center;
   justify-content: center;
+ }
   padding: 10px;
 }
 
+
+.logo span{
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.dual-color{
+  background: linear-gradient(to right, rgb(233, 230, 230) 50%, rgb(9, 61, 2) 50%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
 .dual-color{
   font-size: 24px;
   font-weight: bold;
