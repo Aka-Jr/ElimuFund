@@ -1,8 +1,8 @@
-import { FaSearch, FaHome, FaUser } from 'react-icons/fa';
+import {  FaHome, FaUser, FaYoutube } from 'react-icons/fa';
 const Login = () => {
     return(
         <div>
-        <FaSearch />
+        <FaYoutube />
         <FaHome />
         <FaUser />
       </div>

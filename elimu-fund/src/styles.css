@@ -70,6 +70,9 @@ body {
 .nav-element li:hover{
 background-color: white;
 color: black;
+/* padding: 6px;
+transition: padding 0.3s, font-size 0.3s; */
+
 }
 
 .nav-student{
