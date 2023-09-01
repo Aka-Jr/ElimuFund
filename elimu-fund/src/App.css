@@ -1,4 +1,9 @@
 
+@media (max-width: 768px){
+  .logo{
+    margin-top: 50px;
+    /* margin-left: 50px; */
+  }}
 .logo{
 
   display: flex;
