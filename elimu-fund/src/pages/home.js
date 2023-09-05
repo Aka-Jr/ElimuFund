@@ -1,65 +1,23 @@
 import React from "react";
-import Footer from "../Footer";
+import Footer from "../components/Footer";
+import OngoingCampaign from "../components/OngoingCampaign";
+import OngoingCampaignData from "../components/OngoingCampaignData";
+import TestimoniesData from "../components/TestimoniesData";
+import Testimonies from "../components/Testimonies";
+
+
 const Home = () => {
     return (
     
-        // <div class="ongoing-campaign">Ongoing campaigns</div>
 <div>
 
-<div class="ongoing-campaign">Ongoing campaigns</div>
+<div className="ongoing-campaign">Ongoing campaigns</div>
 
-    <div class="root">
+    <div className="root">
 
-      <div class="card">
-        <div class="card-header"> 
-          <img class="card-img" src="./udsm logo.jpg" alt="" />
-          <p>University of Dar Es Salaam</p>
-        </div>
+      <OngoingCampaign details={OngoingCampaignData}/>
 
-          <div class="card-body">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-               Quibusdam ad odio debitis maxime fugit dolore
-               non id iusto odit officiis voluptate ut in saepe aut qui incidunt,
-                veniam corrupti perferendis.</p>
-                <progress class="fund-progress" value="20" max="100"></progress>
-               <button class="donate-btn"> Donate</button>
-          </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header"> 
-          <img class="card-img" src="./udsm logo.jpg" alt="" />
-          <p>University of Dar Es Salaam</p>
-          </div>
-
-          <div class="card-body">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam ad 
-              odio debitis maxime fugit dolore
-               non id iusto odit officiis voluptate ut in saepe aut qui incidunt,
-                veniam corrupti perferendis.</p>
-
-                <progress class="fund-progress" value="90" max="100"></progress>
-               <button class="donate-btn"> Donate</button>
-          </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <img class="card-img" src="./udsm logo.jpg" alt="" />
-          <p>University of Dar Es Salaam</p>
-        </div>
-
-          <div class="card-body">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-               Quibusdam ad odio debitis maxime fugit dolore
-               non id iusto odit officiis voluptate ut in saepe aut qui incidunt, 
-               veniam corrupti perferendis.</p>
-               <progress class="fund-progress" value="60" max="100"></progress>
-               <button class="donate-btn"> Donate</button>
-          </div>
-      
-      </div>
-
+     
 
     </div>
 
@@ -67,55 +25,8 @@ const Home = () => {
 
     <div class="root">
 
-<div class="card">
-  <div class="card-header-testimonies"> 
-    <img class="card-img" src="./Profile_JR.png" alt="" />
-    <p>Juma Kibula</p>
-  </div>
+    <Testimonies details={TestimoniesData}/>
 
-    <div class="card-body">
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-         Quibusdam ad odio debitis maxime fugit dolore
-         non id iusto odit officiis voluptate ut in saepe aut qui incidunt,
-          veniam corrupti perferendis.</p>
-          {/* <progress class="fund-progress" value="20" max="100"></progress> */}
-         {/* <button class="donate-btn"> Donate</button> */}
-    </div>
-</div>
-
-<div class="card">
-  <div class="card-header-testimonies"> 
-    <img class="card-img" src="./Profile_JR.png" alt="" />
-    <p>Juma kibula</p>
-    </div>
-
-    <div class="card-body">
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam ad 
-        odio debitis maxime fugit dolore
-         non id iusto odit officiis voluptate ut in saepe aut qui incidunt,
-          veniam corrupti perferendis.</p>
-
-          {/* <progress class="fund-progress" value="90" max="100"></progress> */}
-         {/* <button class="donate-btn"> Donate</button> */}
-    </div>
-</div>
-
-<div class="card">
-  <div class="card-header-testimonies">
-    <img class="card-img" src="./Profile_JR.png" alt="" />
-    <p>Juma Kibula</p>
-  </div>
-
-    <div class="card-body">
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-         Quibusdam ad odio debitis maxime fugit dolore
-         non id iusto odit officiis voluptate ut in saepe aut qui incidunt, 
-         veniam corrupti perferendis.</p>
-         {/* <progress class="fund-progress" value="60" max="100"></progress> */}
-         {/* <button class="donate-btn"> Donate</button> */}
-    </div>
-
-</div>
 </div>
 
 

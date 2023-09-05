@@ -1,9 +1,9 @@
-import Footer from "../Footer"
-
+import Footer from "../components/Footer";
+import UniversityDashboard from "../components/UniversityDashboard";
 const Faqs = () => {
     return (
     <div>
-        <h1>Welcom this is FAQs Page</h1>
+        <UniversityDashboard/>
         <Footer />
     </div>)
      
