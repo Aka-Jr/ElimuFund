@@ -3,7 +3,7 @@ import { IconButton } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import { Link } from 'react-router-dom';
-import './styles.css';
+import '../styles.css';
 
 const MobileNavbar = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
@@ -19,6 +19,7 @@ const MobileNavbar = () => {
 
       {isMenuOpen && (
         <nav className="mobile-navBar">
+          
           <ul className="nav-element">
 
           <li className="search-icon">Search</li>
@@ -33,7 +34,6 @@ const MobileNavbar = () => {
                         </ul>
                     
                     </li>
-            {/* Your navigation links */}
           </ul>
         </nav>
       )}
