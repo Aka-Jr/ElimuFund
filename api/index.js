@@ -2,7 +2,6 @@ const express = require ('express');
 const mysql = require('mysql');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const cors = require('cors');
 const session = require('express-session')
 const crypto = require('crypto');
 const secretKey = crypto.randomBytes(32).toString('hex');

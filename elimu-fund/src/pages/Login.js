@@ -1,52 +1,97 @@
-import React from 'react';
+import React,{useState} from 'react';
 import '../App.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+
+import request from 'superagent';
+
+
+//function to handle log in
+
+
 const Login = () => {
-  const [email, setEmail] = useState(""); // Changed setName to setEmail for clarity
-  const [password, setPassword] = useState("");
+
+  const [registration_number, setRegistrationNumber] = useState('');
+  const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
+  const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
+  const handleLogin = () => {
     request
-      .post('http://localhost:5000/login')
-      .send({ email, password })
+      .post('http://localhost:5000/students/login')
+      .send({ registration_number, password })
       .then(response => {
         if (response.body.error === false) {
           setMessage('Login successful');
-          // Redirect to the dashboard route using the Navigate function
-          return <Navigate to="/faqs" />;
+
+
+          const token = response.body.token;
+
+        // Store the token in localStorage or a secure storage mechanism
+        localStorage.setItem('token', token);
+
+
+
+
+          //route to other pages with session
+          navigate('/faqs');
         } else {
           setMessage('Invalid credentials');
+          //res.status(401).send('Authentication failed');
         }
       })
-      .catch(error => {
+          .catch(error => {
         console.error(error);
         setMessage('An error occurred during login');
       });
-  }
+  };
+//* function finished*** */
+    return(
 
-  return (
-    <div>
-      <label>Enter your name:
+    <div className="login-container">
+      <h1>Sign In</h1>
+    
+        <div className="loginForm">
         <input
           type="text"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)} // Changed setName to setEmail here
+          name="registration_number"
+          placeholder="registration Number"
+          value={registration_number}
+          onChange={e => setRegistrationNumber(e.target.value)}
         />
-      </label>
-      <label>Enter your password:
         <input
           type="password"
+          name="password"
+          placeholder="Password"
           value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          onChange={e => setPassword(e.target.value)}
         />
-      </label>
-      <button type="submit" onClick={handleSubmit}>Submit</button> {/* Changed input type to button */}
-      <p>{message}</p>
+        <div className='forgotpassword'>
+        <label>
+          <p>Forgot password?</p>
+        </label>
+        <p> Don't have account?  <Link className=" nav-link" to="/signUp">SignUp</Link></p>
+        </div>
+        <br />
+
+
+        <button type="submit" onClick={handleLogin}>Sign In</button>
+        <p>{message}</p>
+        </div>
+   
+
+      <div className="separator"></div>
+      <div className='buttons'>
+      <div className="create-account-button">
+        <button className="student-button">Create Account as Student</button>
+      </div>
+       <div className="register-institution-button">
+        <button className="institution-button">Register your Institution</button>
+      </div>
+      </div>
+      
+
     </div>
-  )
+    );
 }
 
 export default Login;
