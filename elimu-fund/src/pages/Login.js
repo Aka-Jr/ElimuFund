@@ -1,22 +1,67 @@
-import React from 'react';
+import React,{useState} from 'react';
 import '../App.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+
+import request from 'superagent';
+
+
+//function to handle log in
+
+
 const Login = () => {
+
+  const [registration_number, setRegistrationNumber] = useState('');
+  const [password, setPassword] = useState('');
+  const [message, setMessage] = useState('');
+  const navigate = useNavigate();
+
+  const handleLogin = () => {
+    request
+      .post('http://localhost:5000/students/login')
+      .send({ registration_number, password })
+      .then(response => {
+        if (response.body.error === false) {
+          setMessage('Login successful');
+
+
+          const token = response.body.token;
+
+        // Store the token in localStorage or a secure storage mechanism
+        localStorage.setItem('token', token);
+
+
+
+
+          //route to other pages with session
+          navigate('/faqs');
+        } else {
+          setMessage('Invalid credentials');
+          //res.status(401).send('Authentication failed');
+        }
+      })
+          .catch(error => {
+        console.error(error);
+        setMessage('An error occurred during login');
+      });
+  };
+//*** function finished******* */
     return(
 
     <div className="login-container">
       <h1>Sign In</h1>
-      <form >
+    
         <div className="loginForm">
         <input
           type="text"
-          name="Email"
-          placeholder="Email"
+          name="registration_number"
+          placeholder="registration Number"
+          onChange={e => setRegistrationNumber(e.target.value)}
         />
         <input
           type="password"
           name="password"
           placeholder="Password"
+          onChange={e => setPassword(e.target.value)}
         />
         <div className='forgotpassword'>
         <label>
@@ -25,9 +70,12 @@ const Login = () => {
         <p> Don't have account?  <Link className=" nav-link" to="/signUp">SignUp</Link></p>
         </div>
         <br />
-        <button type="submit">Sign In</button>
+
+
+        <button type="submit" onClick={handleLogin}>Sign In</button>
+        <p>{message}</p>
         </div>
-      </form>
+   
 
       <div className="separator"></div>
       <div className='buttons'>
