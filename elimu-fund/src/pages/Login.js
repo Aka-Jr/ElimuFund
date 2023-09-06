@@ -1,7 +1,6 @@
-import { useState } from 'react';
-import request from 'superagent';
-import { Navigate } from 'react-router-dom'; // Import Navigate correctly
-
+import React from 'react';
+import '../App.css';
+import { Link } from 'react-router-dom';
 const Login = () => {
   const [email, setEmail] = useState(""); // Changed setName to setEmail for clarity
   const [password, setPassword] = useState("");
