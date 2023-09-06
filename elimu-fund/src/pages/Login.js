@@ -5,7 +5,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import request from 'superagent';
 
 
-
 //function to handle log in
 
 
@@ -45,7 +44,7 @@ const Login = () => {
         setMessage('An error occurred during login');
       });
   };
-//*** function finished******* */
+//* function finished*** */
     return(
 
     <div className="login-container">
