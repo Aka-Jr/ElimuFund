@@ -1,47 +1,53 @@
-import React from 'react';
-import '../App.css';
-import { Link } from 'react-router-dom';
-const Login = () => {
-    return(
+import { useState } from 'react';
+import request from 'superagent';
+import { Navigate } from 'react-router-dom'; // Import Navigate correctly
 
-    <div className="login-container">
-      <h1>Sign In</h1>
-      <form >
-        <div className="loginForm">
+const Login = () => {
+  const [email, setEmail] = useState(""); // Changed setName to setEmail for clarity
+  const [password, setPassword] = useState("");
+  const [message, setMessage] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    request
+      .post('http://localhost:5000/login')
+      .send({ email, password })
+      .then(response => {
+        if (response.body.error === false) {
+          setMessage('Login successful');
+          // Redirect to the dashboard route using the Navigate function
+          return <Navigate to="/faqs" />;
+        } else {
+          setMessage('Invalid credentials');
+        }
+      })
+      .catch(error => {
+        console.error(error);
+        setMessage('An error occurred during login');
+      });
+  }
+
+  return (
+    <div>
+      <label>Enter your name:
         <input
           type="text"
-          name="Email"
-          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)} // Changed setName to setEmail here
         />
+      </label>
+      <label>Enter your password:
         <input
           type="password"
-          name="password"
-          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
         />
-        <div className='forgotpassword'>
-        <label>
-          <p>Forgot password?</p>
-        </label>
-        <p> Don't have account?  <Link className=" nav-link" to="/signUp">SignUp</Link></p>
-        </div>
-        <br />
-        <button type="submit">Sign In</button>
-        </div>
-      </form>
-
-      <div className="separator"></div>
-      <div className='buttons'>
-      <div className="create-account-button">
-        <button className="student-button">Create Account as Student</button>
-      </div>
-       <div className="register-institution-button">
-        <button className="institution-button">Register your Institution</button>
-      </div>
-      </div>
-      
-
+      </label>
+      <button type="submit" onClick={handleSubmit}>Submit</button> {/* Changed input type to button */}
+      <p>{message}</p>
     </div>
-    );
+  )
 }
 
 export default Login;

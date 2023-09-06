@@ -1,6 +1,8 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import MobileNavbar from './MobileNavbar';
+import '../App.css';
+
 
 
 

@@ -1,11 +1,14 @@
 const express = require ('express');
 const mysql = require('mysql');
+const cors = require('cors');
 const bodyParser = require('body-parser');
+const session = require('express-session');
 
 const app = express ();
 const port = 5000;
 
 app.use(bodyParser.json());
+app.use(cors());
 
 app.use(bodyParser.urlencoded
     (
@@ -71,3 +74,73 @@ app.get('/fundraisers/:id', function (req,res){
     });
 })
 
+
+app.post('/register', function(req, res) {
+  const firstname = req.body.firstname;
+  const surname = req.body.surname;
+  const studentId = req.body.studentId;
+  const email = req.body.email;
+  const password = req.body.password;
+
+  db.query(
+    "INSERT INTO fundraisers (firstname, surname, studentId, email, password) VALUES (?,?,?,?,?)",
+    [firstname, surname, studentId, email, password],
+    (err, results) => {
+      if (err) {
+        console.error('Error registering user:', err);
+        return res.status(500).json({
+          error: true,
+          message: 'Error registering user',
+        });
+      } else {
+        // User registered successfully
+        return res.status(200).json({
+          error: false,
+          message: 'Registration successful',
+        });
+      }
+    }
+  );
+});
+
+
+
+
+
+app.post('/login', (req, res) => {
+    const { email, password } = req.body;
+  
+    if (!email || !password) {
+      return res.status(400).json({
+        error: true,
+        message: 'Both email and password are required fields',
+      });
+    }
+  
+    // Query to check if the user with the given email and password exists
+    const checkUserQuery = 'SELECT * FROM fundraisers WHERE email = ? AND password = ?';
+  
+    db.query(checkUserQuery, [email, password], (error, results) => {
+      if (error) {
+        console.error('Error checking user:', error);
+        return res.status(500).json({
+          error: true,
+          message: 'Error checking user',
+        });
+      }
+  
+      if (results.length === 0) {
+        return res.status(401).json({
+          error: true,
+          message: 'Invalid email or password',
+        });
+      }
+  
+      // User is successfully authenticated
+      return res.status(200).json({
+        error: false,
+        message: 'Login successful',
+        user: results[0], // You can send user data if needed
+      });
+    });
+  });
