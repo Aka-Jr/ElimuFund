@@ -126,7 +126,7 @@ class CreateCampaign extends Component {
                     </td>
                     
                     <td colSpan="2">
-                    <input type="file" />
+                    <input type="file"   />
                     <label>Attach Photo</label>
                     </td>
                    

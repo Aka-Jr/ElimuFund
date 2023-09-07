@@ -21,13 +21,13 @@ const NavBar = () => {
                     <li><Link className=" nav-link" to="/about">About Us</Link></li>
                     <li><Link className=" nav-link" to="/faqs">FAQs</Link></li>
                     <li><Link className=" nav-link" to="/login">Login</Link></li>
-                    <li className ="language-dropdown">Language
+                    {/* <li className ="language-dropdown">Language
                         <ul className="language-dropdown-content">
                             <li>English</li>
                             <li>Swahili</li>
                         </ul>
                     
-                    </li>
+                    </li> */}
                 </ul>
             </nav>
             

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 import '../App.css';
 import Footer from "./Footer";
 import { FaBell, FaEdit, FaHome, FaRegPlusSquare, FaSignOutAlt, FaUserEdit } from "react-icons/fa";
@@ -14,12 +15,19 @@ const StudentDashboard = () => {
         <div className="student-dashboard">
             <div className="student-profile-section">
                 <ul>
-                    <li><span><FaRegPlusSquare /></span>Create new campaign</li>
-                    <li><span><FaUserEdit /></span>Edit profile</li>
-                    <li><span><FaBell /></span>Notification</li>
-                    <li><span><FaEdit /></span>Edit story</li>
-                    <li><span><FaHome /></span>Home</li>
-                    <li id="logout"><span><FaSignOutAlt /></span>LogOut</li>
+                    <li><span className="dashboard-icons"><FaRegPlusSquare /></span>
+                    <Link className="profile-links" to="create-campaign">Create new campaign</Link></li>
+
+                    <li><span className="dashboard-icons"><FaUserEdit />
+                    </span><Link className="profile-links" to="create-campaign">Edit profile</Link></li>
+
+                    <li><span className="dashboard-icons"><FaBell />
+                    </span><Link  className="profile-links" to="create-campaign">Notification</Link></li>
+
+                    <li><span className="dashboard-icons"><FaEdit />
+                    </span><Link className="profile-links" to="create-campaign"  >Edit story</Link></li>
+                    {/* <li><span className="dashboard-icons"><FaHome /></span>Home</li> */}
+                    <li id="logout"><span className="dashboard-icons"><FaSignOutAlt /></span>LogOut</li>
                 </ul>
 
             </div>
