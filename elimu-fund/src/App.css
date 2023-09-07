@@ -60,9 +60,27 @@
 }
 
 
+.seeMoreButton{
+      width: fit-content;
+      height: 40px;
+      border-radius: 10px;
+      border: none;
+      background-color: #43d02a;
+      font-weight: bold;
+      font-size: small;
+      color: white;
+      cursor: pointer;
+      margin: 10px;
+}
+
+.seeMoreButton:hover{
+  background-color: #006400;
+}
 
 .paymentButton{
   border: none;
+  background-color: #ffffff;
+
 }
 .payment-details{
   display:block ;
@@ -145,10 +163,6 @@ button[type="submit"]:hover {
   background-color: #0056b3;
 }
   
-button:hover {
-  background-color: #006400;
-}
-
 /* src/styles.css */
 
 /* form {
@@ -281,3 +295,231 @@ text-align: 3rem;
   background-color: #43d02a;
   border-radius: 10px;
  }
+
+ .aboutUs{
+  height: fit-content;
+  width: auto;
+  margin: 10px;
+  padding: 10px;
+  display: block;
+
+ 
+ }
+
+ .aboutUs h1, h2, h3{
+  color: black;
+ 
+ }
+
+ /* .navBar .start-elimufund-button{
+  width: 300px;
+  height: 300px;
+  color: white;
+ } */
+
+ .Application-container h1 {
+  text-align: center;
+}
+
+/* Input Styles */
+input[type="text"],
+input[type="checkbox"] {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Label Styles */
+label {
+  font-weight: bold;
+}
+
+.sponsorship-section{
+  display: inline-flex; 
+  margin-bottom: 20px;
+}
+
+.parents-section {
+  display: flex;
+  align-items: center;
+  margin-left: 3px;
+}
+
+/* Checkbox Styles */
+.parent-checkbox {
+  display: inline-flex;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+/* Separator Styles */
+.separator {
+  border-top: 1px solid #ccc;
+  margin: 20px 0;
+}
+
+/* Submit Button Styles */
+button[type="submit"] {
+  background-color: #82b889;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+/* Optional: Button Hover Effect */
+button[type="submit"]:hover {
+  background-color: #119e01;
+}
+
+@media(max-width:768px){
+  .student-dashboard{
+    display: flex;
+    flex-direction: column;
+    padding: auto;
+    margin: auto;
+  }
+}
+.student-dashboard{
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  margin: 5px;
+  justify-content: space-between;
+  /* padding-left: 0px; */
+}
+
+.student-profile-section{
+  align-items: center;
+  border-right: 1px solid #119e01;
+  height: 400px;
+  margin: 2rem;
+  
+ 
+}
+
+.student-profile-section li{
+  padding-top: 15px;
+  list-style: none;
+  align-items: center;
+  justify-content: center;
+  margin: 15px;
+  margin-right: 2rem;
+ 
+
+}
+
+.student-profile-section span{
+   padding-right: 2rem;
+
+}
+
+.student-story-section {
+width: fit-content;
+text-align: center;
+margin-right: 300px;
+
+}
+
+.student-story-section #title{
+  color: #006400;
+  font-size: large;
+  font-weight: bold;
+}
+#story-input{
+  height: 400px;
+
+}
+
+.welcome-user{
+  color: #006400;
+  text-align: center;
+  align-items: center;
+}
+
+#logout{
+  border-top: 1px solid #119e01;
+  
+}
+
+/* create campaign CSS */
+
+.container textarea{
+  background-color: #F9F1E9;
+}
+body{
+  font-size: 18px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.container input[type="submit"]{
+  width: 95px;
+  height: 50px;
+  border-radius: 5px;
+  margin-left: 250px;
+  background-color: #43B02A;
+  color: white;
+}
+.container input[type="text"],
+input[type="email"]
+{
+  border-radius: 10px;
+  width: 200px;
+  height: 30px;
+}
+
+.container input[type="checkbox"]{
+  width: 29px;
+  height: 20px;
+}
+
+.container form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.container{
+   margin-bottom: 1rem;
+}
+.container label{
+  font-size: 15px;
+}
+
+
+/* Styles for screens with a maximum width of 600px (e.g., mobile devices) */
+@media (max-width: 600px) {
+body {
+font-size: 10px; /* Decrease font size for smaller screens */
+}
+
+.container
+/* input[type="email"], */
+textarea {
+width: 100%; /* Make form fields full width on small screens */
+margin: 5px 0; /* Add some spacing between form fields */
+}
+
+.container input[type="submit"] {
+width: 120%; /* Make the submit button full width */
+margin-left: 0; /* Remove left margin */
+height: 120%;
+}
+
+.container table {
+width: fit-content; /* Make the table full width on small screens */
+margin: 20px;
+}
+
+/* Center align the text within table cells */
+.container td {
+text-align: center;
+}
+
+}
+
+.container td #email {
+  text-align: center;
+  width: 80%;
+  }
+

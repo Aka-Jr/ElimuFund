@@ -1,6 +1,7 @@
 import React from "react";
 import '../App.css';
 import {  FaPlus } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const UniversityDashboard =()=>{
     return(
@@ -23,10 +24,11 @@ const UniversityDashboard =()=>{
             </div>
         </div>
         <div className="add-student">
-            <button 
+        <Link className=" nav-link" to="/addStudent"><button 
             className="add-student-button">
                  <h2>  <FaPlus />   Add new student</h2>
-            </button>
+            </button></Link>
+            
         </div>
   </div>
     );

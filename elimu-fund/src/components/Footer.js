@@ -1,9 +1,6 @@
 import React from 'react';
-import SearchIcon from '@mui/icons-material/Search';
-// import MailIcon from '@mui/icons-material/Mail';
-// import PhoneIcon from '@mui/icons-material/Phone';
 import '../styles.css';
-import { FaFacebook, FaInbox, FaInstagram, FaLocationArrow, FaPhone, FaTwitter, FaYoutube } from 'react-icons/fa';
+import { FaFacebook, FaFileAlt, FaInbox, FaInstagram, FaLocationArrow, FaPhone, FaShieldAlt, FaTwitter, FaYoutube } from 'react-icons/fa';
 
 const Footer = () =>{
     return(
@@ -17,11 +14,10 @@ const Footer = () =>{
         </ul>
       </div>
       <div className="footer-component" id="terms">
-      <p><b>Privacy and Terms</b></p>
+      <p><b>Legal</b></p>
         <ul>
-          <li> <span className="icons"><SearchIcon /> </span> Terms</li>
-          <li> <span className="icons"><SearchIcon /> </span> Privacy notice</li>
-          <li> <span className="icons"><FaFacebook /> </span> Legal</li>
+          <li> <span className="icons"><FaFileAlt /> </span> Terms</li>
+          <li> <span className="icons"><FaShieldAlt /> </span> Privacy notice</li>
         </ul>
       </div>
       <div className="footer-component" id="social-media">

@@ -1,7 +1,7 @@
 const express = require ('express');
 const mysql = require('mysql');
-const bodyParser = require('body-parser');
 const cors = require('cors');
+const bodyParser = require('body-parser');
 const session = require('express-session')
 const crypto = require('crypto');
 const secretKey = crypto.randomBytes(32).toString('hex');
@@ -24,6 +24,7 @@ app.use(session({
 app.use(cors());
 
 app.use(bodyParser.json());
+app.use(cors());
 
 // app.use(
 //   session({
