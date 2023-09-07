@@ -4,25 +4,25 @@ const TestimoniesData = [
 
     {
         img: Profile_JR,
-        fundraiserName: "University of Dar Es Salaam",
+        fundraiserName: "Juma kibula",
         fundraiserStory:"Lorem ipsum dolor sit amet consectetur adipisicing elit.Quibusdam ad odio debitis maxime fugit dolorenon id iusto odit officiis voluptate ut in saepe aut qui incidunt,veniam corrupti perferendis." 
     },
 
     {
         img: Profile_JR,
-        fundraiserName: "University of Dar Es Salaam",
+        fundraiserName: "Juma Kibula",
         fundraiserStory:"Lorem ipsum dolor sit amet consectetur adipisicing elit.Quibusdam ad odio debitis maxime fugit dolorenon id iusto odit officiis voluptate ut in saepe aut qui incidunt,veniam corrupti perferendis." ,
     },
 
     {
         img: Profile_JR,
-        fundraiserName: "University of Dar Es Salaam",
+        fundraiserName: "Juma Kibula",
         fundraiserStory:"Lorem ipsum dolor sit amet consectetur adipisicing elit.Quibusdam ad odio debitis maxime fugit dolorenon id iusto odit officiis voluptate ut in saepe aut qui incidunt,veniam corrupti perferendis." ,
     },
 
     {
         img: Profile_JR,
-        fundraiserName: "University of Dar Es Salaam",
+        fundraiserName: "Juma kibula",
         fundraiserStory:"Lorem ipsum dolor sit amet consectetur adipisicing elit.Quibusdam ad odio debitis maxime fugit dolorenon id iusto odit officiis voluptate ut in saepe aut qui incidunt,veniam corrupti perferendis." ,
     },
 ]

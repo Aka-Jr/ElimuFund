@@ -6,9 +6,13 @@ import Faqs from './pages/Faqs';
 import About from './pages/About';
 import SignUp from './pages/SignUp';
 import Payment from './pages/Payment';
+import AddStudentForm from "./components/AddStudentForm"
 
 import { BrowserRouter as Router,Routes, Route} from 'react-router-dom';
 import NavBar from './components/NavBar';
+import StudentDashboard from './components/StudentDashboard';
+import CreateCampaign from './components/CreateCampaign';
+import Registration from './pages/Registration';
 
 
 const App = () =>{
@@ -22,6 +26,10 @@ const App = () =>{
               <Route exact path='/login' element={<Login/>}></Route>
               <Route exact path='/signUp' element={<SignUp />}></Route>
               <Route exact path='/payment' element={<Payment />}></Route>
+              <Route exact path='/addStudent' element={<AddStudentForm />}></Route>
+              <Route exact path='/studentDashboard' element={<StudentDashboard />}></Route>
+              <Route exact path='/createCampaign' element={<CreateCampaign />}></Route>
+              <Route exact path='/registration' element={<Registration />}></Route>
 
             </Routes>
          </Router>

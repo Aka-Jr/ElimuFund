@@ -21,6 +21,9 @@ body {
 @media (max-width: 768px){
   .top{
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
   }
 }
 
@@ -72,28 +75,38 @@ body {
   gap: 2rem;
 }
 
-.motto{
+.motto {
   color: white;
   font-size: 50px;
   font-weight: bold;
   justify-content: center;
   margin: auto;
+  text-align: center;
  
 }
 
 @media (max-width: 768px){
   .motto{
  font-size: large;
+
   }}
 
 .start-elimufund-button{
-  border: 1px solid black;
-  border-radius: 10px;
-  height: 25px;
-  width: 200px;
-  padding-left: 10px;
-  padding-right: 15px;
-  
+  width: 100%;
+      height: 50px;
+      border-radius: 10px;
+      border: none;
+      background-color: rgb(255, 255, 255);
+      font-weight: bold;
+      font-size: medium;
+      color: rgb(0, 0, 0);
+      cursor: pointer;
+    
+}
+
+.start-elimufund-button:hover{
+  color: white;
+  background-color: #006400;
 }
 
 /* ============================                            ========================= */
@@ -134,6 +147,9 @@ body {
   text-align: center;
   width: 100%;
   margin-bottom: 10px;
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
 }
 
 .mobile-navbar .nav-link {
@@ -155,8 +171,8 @@ body {
   font-weight: bold;
 }
 
-.mobile-navbar .language-dropdown{
-  color:white;
+.language-dropdown{
+  color:rgb(0, 0, 0);
   font-weight: bold;
 }
 
@@ -207,8 +223,10 @@ margin-bottom: 10px;
 /* ============================                            ========================= */
              /* The navigation link (li) of the navigation bar starting here  */
 .nav-link:hover{
-background-color: white;
-color: black;
+font-size: larger;
+color: #43d02a;
+font-stretch: expanded;
+transition: color .3s ease-in-out;
 }
 
 /* ============================                            ========================= */
@@ -318,6 +336,11 @@ color: black;
       margin-bottom: 50px;
     }
 
+    .fundraiserName{
+      color: #43d02a;
+      font-weight: bold;
+    }
+
      /* ============================                            ========================= */
            /* The div containing cards for the testimonies starting here  */
 
@@ -333,7 +356,7 @@ color: black;
                                   /* The donation starting here  */
     
     .donate-btn{
-      width: 100%;
+      width: 80%;
       height: 50px;
       border-radius: 10px;
       border: none;
@@ -342,7 +365,11 @@ color: black;
       font-size: larger;
       color: white;
       cursor: pointer;
+      margin-bottom: 10px;
     
+    }
+    .donate-btn:hover{
+      background-color: #006400;
     }
 
      /* ============================                            ========================= */
@@ -410,60 +437,7 @@ color: black;
     /* ============================                            ========================= */
                                              /*SignUp  */
 
-    form {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    
-    .form-group {
-    margin-bottom: 1rem;
-    }
-    
-    label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: bold;
-    }
-    
-    input[type="text"],
-    input[type="password"],
-    input[type="Email"]
-    
-    {
-    width: 120%;
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    font-size: 16px;
-    }
-    input[type="checkbox"]{
-      margin-left: 80px;
-    }
-    
-    
-    
-    button[type="submit"] {
-    background-color: #4caf50;
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s;
-    }
-    
-    button[type="submit"]:hover {
-    background-color: #023004;
-    }
-    
-    .Signup-container h1 {
-    margin-bottom: 20px;
-    font-size: 50px;
-    color: #0df155;
-    font-weight: bold;
-    }
+   
     
   
                                   /* footer is starting here */

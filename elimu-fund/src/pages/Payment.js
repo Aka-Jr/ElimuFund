@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import '../App.css';
 
-    const PaymentInfo = () => {
+    // const PaymentInfo = () => {
 
-      alert("Dear donor Payment related messege has been sent to your phone number. Please, check your messege.");
+    //   alert("Dear donor Payment related messege has been sent to your phone number. Please, check your messege.");
   
-    }
+    // }
 
 
 const Payment = () => {
@@ -138,7 +138,8 @@ const Payment = () => {
           
           </div>
           <p>
-          <button type="submit" onClick={PaymentInfo()}>Make Payment</button>
+          <button type="submit" >Make Payment</button>
+          {/* onClick={PaymentInfo()} */}
       </p>  
             </div>  
       </form>
