@@ -10,8 +10,8 @@ const NavBar = () => {
     return (
         <div className = "top">
         <div className ="nav-div">
-        <div class ="logo">
-            <span class="dual-color">ELIMUFUND</span>
+        <div className ="logo">
+            <span className="dual-color">ELIMUFUND</span>
         </div>
             <MobileNavbar/>
             <nav className =" navBar">
@@ -34,7 +34,7 @@ const NavBar = () => {
         </div>
         <div className="student-motto">
         <div className = "nav-student">
-            <img class="student-img-top" src="./student.png" alt="" />
+            <img className="student-img-top" src="./student.png" alt="" />
             </div>
 
             <div className="motto">
