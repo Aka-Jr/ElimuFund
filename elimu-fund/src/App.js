@@ -12,6 +12,7 @@ import { BrowserRouter as Router,Routes, Route} from 'react-router-dom';
 import NavBar from './components/NavBar';
 import StudentDashboard from './components/StudentDashboard';
 import CreateCampaign from './components/CreateCampaign';
+import Registration from './pages/Registration';
 
 
 const App = () =>{
@@ -28,6 +29,7 @@ const App = () =>{
               <Route exact path='/addStudent' element={<AddStudentForm />}></Route>
               <Route exact path='/studentDashboard' element={<StudentDashboard />}></Route>
               <Route exact path='/createCampaign' element={<CreateCampaign />}></Route>
+              <Route exact path='/registration' element={<Registration />}></Route>
 
             </Routes>
          </Router>

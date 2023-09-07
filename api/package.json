@@ -16,5 +16,8 @@
     "express-session": "^1.17.3",
     "mysql": "^2.18.1",
     "react-router-dom": "^6.15.0"
+  },
+  "devDependencies": {
+    "jsonwebtoken": "^9.0.2"
   }
 }

@@ -223,8 +223,10 @@ margin-bottom: 10px;
 /* ============================                            ========================= */
              /* The navigation link (li) of the navigation bar starting here  */
 .nav-link:hover{
-background-color: white;
-color: black;
+font-size: larger;
+color: #43d02a;
+font-stretch: expanded;
+transition: color .3s ease-in-out;
 }
 
 /* ============================                            ========================= */
@@ -435,60 +437,7 @@ color: black;
     /* ============================                            ========================= */
                                              /*SignUp  */
 
-    form {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    
-    .form-group {
-    margin-bottom: 1rem;
-    }
-    
-    label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: bold;
-    }
-    
-    input[type="text"],
-    input[type="password"],
-    input[type="Email"]
-    
-    {
-    width: 120%;
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    font-size: 16px;
-    }
-    input[type="checkbox"]{
-      margin-left: 80px;
-    }
-    
-    
-    
-    button[type="submit"] {
-    background-color: #4caf50;
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s;
-    }
-    
-    button[type="submit"]:hover {
-    background-color: #023004;
-    }
-    
-    .Signup-container h1 {
-    margin-bottom: 20px;
-    font-size: 50px;
-    color: #0df155;
-    font-weight: bold;
-    }
+   
     
   
                                   /* footer is starting here */
