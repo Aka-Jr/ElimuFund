@@ -1,25 +1,24 @@
-const express = require('express');
-const mysql = require('mysql');
-const bodyParser = require('body-parser');
-const cors = require('cors');
-const session = require('express-session')
-const crypto = require('crypto');
-const secretKey = crypto.randomBytes(32).toString('hex');
+const express = require("express");
+const mysql = require("mysql");
+const bodyParser = require("body-parser");
+const cors = require("cors");
+const session = require("express-session");
+const crypto = require("crypto");
+const secretKey = crypto.randomBytes(32).toString("hex");
 console.log(secretKey);
 // const { generateToken } = require('./token'); // Replace with the correct path to your token.js file
-
-
 
 const app = express();
 const port = 5000;
 
 // Configure express-session
-app.use(session({
-  secret: secretKey,
-  resave: false,
-  saveUninitialized: true,
-
-}));
+app.use(
+  session({
+    secret: secretKey,
+    resave: false,
+    saveUninitialized: true,
+  })
+);
 
 // import {userHistory} from 'react-router-dom'
 
@@ -36,32 +35,28 @@ app.use(
 );
 
 app.use(
-  bodyParser.urlencoded
-    (
-      {
-        extended: true
-      })
+  bodyParser.urlencoded({
+    extended: true,
+  })
 );
 
 // Database connection
 
 const db = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: '',
-  database: 'elimufund',
-
+  host: "localhost",
+  user: "root",
+  password: "",
+  database: "elimufund",
 });
 
-db.connect(err => {
+db.connect((err) => {
   if (err) throw err;
-  console.log('Connected to Mysql database');
+  console.log("Connected to Mysql database");
 });
 
 app.listen(port, () => {
-  console.log(`Server is running on port ${port}`)
+  console.log(`Server is running on port ${port}`);
 });
-
 
 // Import required modules and configure your app
 
@@ -113,9 +108,8 @@ app.post("/login", (req, res) => {
 
             // Store user information in the session for admins
 
-            
             req.session.user = {
-              role: "admin",
+              role: "1",
               email: admin.email,
               firstName: admin.first_name,
               lastName: admin.last_name,
@@ -151,12 +145,12 @@ app.post("/login", (req, res) => {
 
             // the institution successifully authenticated
             const institution = results[0];
-                    // Store user information in the session for admins
-        req.session.user = {
-            id: institution.id,
-          };
+            // Store user information in the session for admins
+            req.session.user = {
+              id: institution.id,
+            };
 
-          console.log("User information:", req.session.user);
+            console.log("User information:", req.session.user);
             return res.status(200).json({
               error: false,
               message: "log in successifully for admin",
@@ -187,10 +181,10 @@ app.post("/login", (req, res) => {
             const student = results[0];
 
             req.session.user = {
-                id: student.registration_number,
-              };
-              
-              console.log(user);
+              id: student.registration_number,
+            };
+
+            console.log(user); // make session
             return res.status(200).json({
               error: false,
               message: "log in successifully for student",
@@ -210,11 +204,9 @@ app.post("/login", (req, res) => {
   );
 });
 
-
-
 // signUp page
 
-app.post('/students/signUp', (req, res) => {
+app.post("/students/signUp", (req, res) => {
   const {
     first_name,
     last_name,
@@ -227,112 +219,33 @@ app.post('/students/signUp', (req, res) => {
   // Perform input validation and error handling here
 
   // For example, you can check if the email is already in use
-  db.query('SELECT * FROM students WHERE email = ?', [email], (error, results) => {
-    if (error) {
-      console.error('Error in checking duplicate email', error);
-      return res.status(500).json({
-        error: true,
-        message: 'An error occurred during email verification.',
-      });
-    }
-
-    if (results.length > 0) {
-      return res.status(400).json({
-        error: true,
-        message: 'Email is already in use.',
-      });
-    }
-
-  });
-
-    // insert student in the user table
-      // Check if the email already exists in the database
-  const checkEmailQuery =
-  "SELECT COUNT(*) as count FROM users WHERE identity = ?";
-
-db.query(checkEmailQuery, [registration_number], (error, results) => {
-  if (error) {
-    console.error("Error checking email:", error);
-    return res.status(500).json({
-      error: true,
-      message: "Error checking email",
-    });
-  }
-
-  const identityExists = results[0].count > 0;
-
-  if (identityExists) {
-    return res.status(409).json({
-      error: true,
-      message: "registration number already exists",
-    });
-  }
-
-  // If the registration number doesn't exist, proceed to insert the user
-
-  // inserting the student to user table
-  db.query("INSERT INTO users (role, identity) VALUES( ?, ?)", [3, registration_number],
+  db.query(
+    "SELECT * FROM students WHERE email = ?",
+    [email],
     (error, results) => {
       if (error) {
-        console.error("Error inserting student to users:", error);
+        console.error("Error in checking duplicate email", error);
         return res.status(500).json({
           error: true,
-          message: "Error inserting student",
+          message: "An error occurred during email verification.",
         });
       }
 
-    // Insert the new student record into the database
-    db.query('INSERT INTO students (first_name, last_name, registration_number, email, password, phone_number) VALUES (?, ?, ?, ?, ?, ?)',
-      [first_name, last_name, registration_number, email, password, phone_number],
-      (insertError, insertResult) => {
-        if (insertError) {
-          console.error('Error when inserting student data', insertError);
-          return res.status(500).json({
-            error: true,
-            message: 'An error occurred during student registration.',
-          });
-        }
-
-        return res.status(201).json({
-          error: false,
-          message: 'Student registered successfully.',
-          data: insertResult,
+      if (results.length > 0) {
+        return res.status(400).json({
+          error: true,
+          message: "Email is already in use.",
         });
-      });
-  });
-});
+      }
+    }
+  );
 
-/****************************************institution registration****************************** */
-
-// API to register institution
-// institution registration form
-app.post("/institution/registeration", (req, res) => {
-  const {
-    institution_password,
-    leader_position,
-    institution_name,
-    institution_email,
-    institution_leader,
-  } = req.body;
-
-  if (
-    !institution_password ||
-    !leader_position ||
-    !institution_email ||
-    !institution_name ||
-    !institution_leader
-  ) {
-    return res.status(400).json({
-      error: true,
-      message: "Fill in all the required fields",
-    });
-  }
-
+  // insert student in the user table
   // Check if the email already exists in the database
   const checkEmailQuery =
     "SELECT COUNT(*) as count FROM users WHERE identity = ?";
 
-  db.query(checkEmailQuery, [institution_email], (error, results) => {
+  db.query(checkEmailQuery, [registration_number], (error, results) => {
     if (error) {
       console.error("Error checking email:", error);
       return res.status(500).json({
@@ -341,66 +254,162 @@ app.post("/institution/registeration", (req, res) => {
       });
     }
 
-    const emailExists = results[0].count > 0;
+    const identityExists = results[0].count > 0;
 
-    if (emailExists) {
+    if (identityExists) {
       return res.status(409).json({
         error: true,
-        message: "Email already exists",
+        message: "registration number already exists",
       });
     }
 
-    // If the email doesn't exist, proceed to insert the user
+    // If the registration number doesn't exist, proceed to insert the user
 
-    // inserting the insttitution to user table
-    db.query("INSERT INTO users (role, identity) VALUES( ?, ?)", [2, institution_email],
+    // inserting the student to user table
+    db.query(
+      "INSERT INTO users (role, identity) VALUES( ?, ?)",
+      [3, registration_number],
       (error, results) => {
         if (error) {
-          console.error("Error inserting institution to users:", error);
+          console.error("Error inserting student to users:", error);
           return res.status(500).json({
             error: true,
-            message: "Error inserting institution",
+            message: "Error inserting student",
           });
         }
 
-        // inserting the institution to institution table
-        const insertQuery =
-          "INSERT INTO institution (institution_password, leader_position, institution_email, institution_name, institution_leader) VALUES (?, ?, ?, ?, ?)";
-
+        // Insert the new student record into the database
         db.query(
-          insertQuery,
+          "INSERT INTO students (first_name, last_name, registration_number, email, password, phone_number) VALUES (?, ?, ?, ?, ?, ?)",
           [
-            institution_password,
-            leader_position,
-            institution_email,
-            institution_name,
-            institution_leader,
+            first_name,
+            last_name,
+            registration_number,
+            email,
+            password,
+            phone_number,
           ],
-          (error, results) => {
-            if (error) {
-              console.error("Error registering institution:", error);
+          (insertError, insertResult) => {
+            if (insertError) {
+              console.error("Error when inserting student data", insertError);
               return res.status(500).json({
                 error: true,
-                message: "Error registering institution",
+                message: "An error occurred during student registration.",
               });
             }
 
-            console.log("Your institution registered successfully");
             return res.status(201).json({
               error: false,
-              message: "Your institution registered successfully",
+              message: "Student registered successfully.",
+              data: insertResult,
             });
           }
         );
-      });
+      }
+    );
   });
 
-});
+  /****************************************institution registration****************************** */
+
+  // API to register institution
+  // institution registration form
+  app.post("/institution/registeration", (req, res) => {
+    const {
+      institution_password,
+      leader_position,
+      institution_name,
+      institution_email,
+      institution_leader,
+    } = req.body;
+
+    if (
+      !institution_password ||
+      !leader_position ||
+      !institution_email ||
+      !institution_name ||
+      !institution_leader
+    ) {
+      return res.status(400).json({
+        error: true,
+        message: "Fill in all the required fields",
+      });
+    }
+
+    // Check if the email already exists in the database
+    const checkEmailQuery =
+      "SELECT COUNT(*) as count FROM users WHERE identity = ?";
+
+    db.query(checkEmailQuery, [institution_email], (error, results) => {
+      if (error) {
+        console.error("Error checking email:", error);
+        return res.status(500).json({
+          error: true,
+          message: "Error checking email",
+        });
+      }
+
+      const emailExists = results[0].count > 0;
+
+      if (emailExists) {
+        return res.status(409).json({
+          error: true,
+          message: "Email already exists",
+        });
+      }
+
+      // If the email doesn't exist, proceed to insert the user
+
+      // inserting the insttitution to user table
+      db.query(
+        "INSERT INTO users (role, identity) VALUES( ?, ?)",
+        [2, institution_email],
+        (error, results) => {
+          if (error) {
+            console.error("Error inserting institution to users:", error);
+            return res.status(500).json({
+              error: true,
+              message: "Error inserting institution",
+            });
+          }
+
+          // inserting the institution to institution table
+          const insertQuery =
+            "INSERT INTO institution (institution_password, leader_position, institution_email, institution_name, institution_leader) VALUES (?, ?, ?, ?, ?)";
+
+          db.query(
+            insertQuery,
+            [
+              institution_password,
+              leader_position,
+              institution_email,
+              institution_name,
+              institution_leader,
+            ],
+            (error, results) => {
+              if (error) {
+                console.error("Error registering institution:", error);
+                return res.status(500).json({
+                  error: true,
+                  message: "Error registering institution",
+                });
+              }
+
+              console.log("Your institution registered successfully");
+              return res.status(201).json({
+                error: false,
+                message: "Your institution registered successfully",
+              });
+            }
+          );
+        }
+      );
+    });
+  });
 
   /**********************************to register the valid candidates****************** */
 
   /*this should be made by the institution in the */
-app.post("/valid_candidate/register", (req, res) => {
+  app.post("/valid_candidate/register", (req, res) => {
     const {
       first_name,
       last_name,
@@ -470,11 +479,9 @@ app.post("/valid_candidate/register", (req, res) => {
     );
   });
 
-
-
   //**********************creating new compaigns ****************************/
   // api to create new compaign
-app.post("/createCompaign", (req, res) => {
+  app.post("/createCompaign", (req, res) => {
     const { compaign_story, dead_line, ammout_to_be_raised, student_id } =
       req.body;
 
@@ -508,4 +515,4 @@ app.post("/createCompaign", (req, res) => {
       });
     });
   });
-})
+});
