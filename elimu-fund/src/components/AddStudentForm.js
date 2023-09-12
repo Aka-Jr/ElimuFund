@@ -30,11 +30,13 @@ const AddStudentForm = () => {
             type="text"
             name="FirstName"
             placeholder="First Name"
+            className="addstudentform-inputs"
           />
           <input
             type="text"
             name="Surname"
             placeholder="Surname"
+            className="addstudentform-inputs"
           />
         </div>
         <div className="registration">
@@ -42,11 +44,13 @@ const AddStudentForm = () => {
             type="text"
             name="RegNo"
             placeholder="Reg NO"
+            className="addstudentform-inputs"
           />
           <input
             type="text"
             name="Email"
             placeholder="Email"
+            className="addstudentform-inputs"
           />
         </div>
         <div className="phone">
@@ -54,11 +58,13 @@ const AddStudentForm = () => {
             type="text"
             name="Phone"
             placeholder="Phone"
+            className="addstudentform-inputs"
           />
           <input
             type="text"
             name="YearOfStudy"
             placeholder="Year of study"
+            className="addstudentform-inputs"
           />
         </div>
         
@@ -81,11 +87,26 @@ const AddStudentForm = () => {
         <div className="parents-section">
   <label className="parents-label">Parents that the student has:</label>
   <div className="parent-checkbox">
+    
+    <label htmlFor="father">Both parents</label>
+    <input
+      type="radio"
+      id="both-parents"
+      name="parent"
+      value="both parents"
+      checked={parents.father}
+      onChange={handleParentsChange}
+    />
+  </div>
+
+  <div className="parent-checkbox">
+    
     <label htmlFor="father">Father</label>
     <input
-      type="checkbox"
+      type="radio"
       id="father"
-      name="father"
+      name="parent"
+      value="father"
       checked={parents.father}
       onChange={handleParentsChange}
     />
@@ -94,9 +115,10 @@ const AddStudentForm = () => {
   <div className="parent-checkbox">
     <label htmlFor="mother">Mother</label>
     <input
-      type="checkbox"
+      type="radio"
       id="mother"
-      name="mother"
+      name="parent"
+      value="mother"
       checked={parents.mother}
       onChange={handleParentsChange}
     />
@@ -105,9 +127,10 @@ const AddStudentForm = () => {
   <div className="parent-checkbox">
     <label htmlFor="none">None</label>
     <input
-      type="checkbox"
+      type="radio"
       id="none"
-      name="none"
+      name="parent"
+      value={"none"}
       checked={parents.none}
       onChange={handleParentsChange}
     />
@@ -121,6 +144,7 @@ const AddStudentForm = () => {
           <input
             type="text"
             name="studentdisability"
+            className="addstudentform-inputs"
           />
           </div>
 
@@ -131,6 +155,7 @@ const AddStudentForm = () => {
               type="text"
               id='father'
               name="father"
+              className="addstudentform-inputs"
             />
             </div> 
 
@@ -140,6 +165,7 @@ const AddStudentForm = () => {
               type="text"
               id='mother'
               name="mother"
+              className="addstudentform-inputs"
             />
             </div>
             <hr className="separator" />
