@@ -28,6 +28,7 @@
   color: transparent;
 }
 
+
 /* ============================                            ========================= */
                                   /* SignIn goes here  */
 
@@ -37,11 +38,29 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-color: #f0f0f0;
+  background-color:rgb(247, 247, 247);
+
+}
+
+.loginLink{
+  color:rgb(38, 0, 252);
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.loginLink:hover{
+  color: #119e01;
+}
+
+.forgotpassword{
+  color: #000000;
+  font-size: 24px;
 }
 
 .login-container h1 {
-  color: green;
+  color:#43d02a;
   margin-bottom: 20px;
 }
 
@@ -51,16 +70,58 @@
   align-items: center;
 }
 
+/* @media (max-width: 768px){
+  .signIn-input{
+    width: 100%;
+  }
+} */
+
+
+.signIn-input{
+  gap: 5px;
+  margin: 5px;
+  display: block;
+  width: 400px;
+  height: 50px;
+  border-radius: 5px;
+  text-align: center;
+  font-size: medium;
+}
+
 .loginForm input {
   padding: 10px;
   margin: 5px 0;
-  width: 250px;
-  border: 1px solid #ccc;
+  /* width: 250px; */
   border-radius: 5px;
+  text-align: center;
+  font-size: medium;
+  border: 2px solid #838383;
+  background-color: rgb(250, 250, 250);
+    
+  font-size: 20px;
 }
 
+#sign-button{
+  width: 300px;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  background-color: #119e01;
+  font-weight: bold;
+  font-size: medium;
+  color: white;
+  cursor: pointer;
+}
+#sign-button:active{
+  background-color: #43d02a;
+  transform: translateY(4px);
+}
 
+#sign-button:hover{
+background-color: #006400;
+}
 
+                                                  /* payment */
 
 .seeMoreButton{
       width: fit-content;
@@ -73,6 +134,11 @@
       color: white;
       cursor: pointer;
       margin: 10px;
+}
+
+.seeMoreButton:active{
+  background-color: #006400;
+  transform: translateY(4px);
 }
 
 @media (max-width: 768px){
@@ -98,9 +164,9 @@
       height: 40px;
       border-radius: 10px;
       border: none;
-      background-color: #43d02a;
+      background-color: #119e01;
       font-weight: bold;
-      font-size: small;
+      font-size: medium;
       color: white;
       cursor: pointer;
 }
@@ -110,9 +176,9 @@
       height: 40px;
       border-radius: 10px;
       border: none;
-      background-color: #43d02a;
+      background-color: #119e01;
       font-weight: bold;
-      font-size: small;
+      font-size: medium;
       color: white;
       cursor: pointer;
 }
@@ -122,20 +188,119 @@
 
 .paymentButton{
   border: none;
-  background-color: #ffffff;
+  background-color: inherit;
 
 }
-.payment-details{
-  display:block ;
+.paymentButton:hover{
+cursor: pointer;
+transition: color .3s ease-in-out;
+
+}
+form {
+  display:flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 20px;
+  text-align: left;
+  
 
 }
+
+.payment-input{
+  gap: 5px;
+  margin: 5px;
+  display: block;
+  width: 400px;
+  height: 50px;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 16px;
+  background-color: rgb(133, 127, 127);
+  border: 1px solid white;
+}
+
+
+.payment-label{
+  font-size: medium;
+  font-weight: bold;
+  color: white;
+}
+
+
+
+
+.makepayment-button{
+  width: 150px;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  background-color: #119e01;
+  font-weight: bold;
+  font-size: medium;
+  color: white;
+  cursor: pointer;
+  margin-right: 30px;
+
+}
+
+.makepayment-button:active{
+  background-color: #43d02a;
+  transform: translateY(4px);
+}
+
+.makepayment-cancel-button{
+  width: 150px;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  background-color: #9e0101;
+  font-weight: bold;
+  font-size: medium;
+  color: white;
+  cursor: pointer;
+}
+
+.makepayment-cancel-button:active{
+  background-color: #8b1818;
+  transform: translateY(4px);
+}
+
+.makepayment-cancel-button:hover{
+  background-color: #8b1818;
+
+}
+
+.makepayment-button:hover{
+  background-color: #006400;
+}
+
+#sign-button:active{
+  background-color: #43d02a;
+  transform: translateY(4px);
+}
+
+
 
 .Payment-container {
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
   text-align: center;
   padding: 20px;
+  background-image: url('../public/money.jpg');
+  background-size: contain;
 }
+
+.Payment-container h1 {
+color: white;
+}
+
 
 .Payment-container img {
   max-width: 100%;
@@ -176,44 +341,7 @@
 
 
 
-
-
-
-/* .payment-details .form-group label {
-  display: flex;
-  font-weight: bold;
-  padding-right: 2rem;
-} */
-
-input[type="text"],
-input[type="email"] {
-  width: 100%;
-  padding: 5px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-button[type="submit"] {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-button[type="submit"]:hover {
-  background-color: #0056b3;
-}
-  
-/* src/styles.css */
-
-/* form {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-} */
-
+                                                        /* payments */
 
 
 .form-group{
@@ -232,34 +360,7 @@ button[type="submit"]:hover {
   flex-grow: 1;
 }
 
-input[type="text"],
-input[type="password"],
-input[type="Email"]
 
-{
-width: 100%;
-padding: 0.5rem;
-border: 1px solid #ccc;
-border-radius: 4px;
-font-size: 30px;
-}
-
-
-
-button[type="submit"] {
-background-color: #4caf50;
-color: white;
-border: none;
-padding: 0.5rem 1rem;
-border-radius: 4px;
-cursor: pointer;
-font-size: 16px;
-transition: background-color 0.3s;
-}
-
-button[type="submit"]:hover {
-background-color: #45a049;
-}
 .Payment-option {
 display: flex; /* Display the images in a row */
 align-items: center; /* Align images vertically in the middle */
@@ -274,6 +375,11 @@ gap: 2rem; /* Add spacing between images */
 }
 
 /* CSS for adjusting the size of placeholder text */
+@media (max-width:768px){
+  input::placeholder {
+    display: none; /* Adjust the font size as needed */
+    }
+}
 input::placeholder {
 font-size: 14px; /* Adjust the font size as needed */
 }
@@ -301,36 +407,66 @@ gap: 2rem;
 text-align: 3rem;
 }
 
+                                            /* University dashboard goes here */
 .university-details{
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 2rem;
 }
+.university-container{
+  margin: 5px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+  padding-top: 20px;
+}
+
+@media (max-width: 768px){
+  .cards .university-container{
+    display: flex;
+    flex-direction: column;
+    
+  }
+}
 
 .cards{
   display: flex;
   flex-direction: row;
   justify-content: center;
-  gap: 2rem;
+  gap: 5rem;
   text-align: center;
+  
 }
 
 .cards h1, h3, h2{
   color: white;
 }
 .approved{
-  background-color: #43d02a;
+  background-image: linear-gradient(to left,rgb(49, 243, 0),rgb(69, 165, 93));
   border-radius: 10px;
   padding: 10px;
+}
+
+.approved  h3, h2{
+  color: white;
 }
 .submitted{
-  background-color: blueviolet;
+  background-image: linear-gradient(to left,#cd94f3,rgb(180, 131, 187));
   border-radius: 10px;
   padding: 10px;
 }
+
+.submitted  h3, h2{
+  color: white;
+
+}
+
+.rejected  h3, h2{
+  color: white;
+}
 .rejected{
-  background-color: red;
+  background-image: linear-gradient(to left,#ff3535,rgb(172, 42, 48));
   border-radius: 10px;
   padding: 10px;
 }
@@ -348,19 +484,86 @@ text-align: 3rem;
   border-radius: 10px;
  }
 
+ .add-student-button:hover{
+  background-color: #006400;
+  cursor: pointer;
+ }
+
+
+ .add-student-button h2{
+  color: white;
+ }
+
  .aboutUs{
-  height: fit-content;
-  width: auto;
   margin: 10px;
   padding: 10px;
+  justify-content: center;
+  align-items: center;
   display: block;
-
  
  }
+ #about-elimufund #mission{
+  float: left;
+  height:auto;
+  width: 600px;
+  border-radius: 20px;
+  margin-right: 1rem;
+  
+   }
+
+   #about-elimufund #vision{
+    float: right;
+    height:auto;
+    width: 600px;
+    border-radius: 20px;
+    margin-right: 1rem;
+    
+     }
+
+     #about-elimufund #difference{
+      float: left;
+      height:auto;
+      width: 600px;
+      border-radius: 20px;
+      margin-right: 2rem;
+      
+       }
+   #about-elimufund p{
+    line-height: 2;
+  
+
+   }
+  
+/* 
+ #core-value #mission{
+float: left;
+height:100%;
+    width: 100%;
+border-radius: 20px;
+
+
+ }
+
+ #vision{
+    float:left;
+    height: 500px;
+    width: 500px;
+    border-radius: 20px;
+   
+ } */
+
+ /* #vision p{
+clear: left;
+} */
 
  .aboutUs h1, h2, h3{
   color: black;
  
+ }
+
+ .aboutUs p, li{
+  line-height: 1.5;
+  font-size: 18px;
  }
 
  /* .navBar .start-elimufund-button{
@@ -373,19 +576,19 @@ text-align: 3rem;
   text-align: center;
 }
 
-Input Styles
+/* Input Styles
 input[type="text"],
 input[type="checkbox"] {
   width: 100%;
   padding: 10px;
   border: 2px solid #ccc;
   border-radius: 5px;
-}
+} */
 
 /* Label Styles */
-label {
+/* label {
   font-weight: bold;
-}
+} */
 
 .sponsorship-section{
   display: inline-flex; 
@@ -411,7 +614,18 @@ label {
   margin: 20px 0;
 }
 
-/* Submit Button Styles */
+.addstudentform-inputs{
+  gap: 5px;
+  margin: 5px;
+  /* display: block; */
+  width: 400px;
+  height: 50px;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 16px;
+}
+
+/* Submit Button Styles
 button[type="submit"] {
   background-color: #82b889;
   color: #fff;
@@ -419,11 +633,25 @@ button[type="submit"] {
   border-radius: 5px;
   padding: 10px 20px;
   cursor: pointer;
-}
+} */
 
 /* Optional: Button Hover Effect */
-button[type="submit"]:hover {
+/* button[type="submit"]:hover {
   background-color: #119e01;
+} */
+
+#student-dashboard-container{
+
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  background-image: url('../public/blue.jpg');
+  background-size: contain;
 }
 
 @media(max-width:768px){
@@ -446,7 +674,7 @@ button[type="submit"]:hover {
 
 .student-profile-section{
   align-items: center;
-  border-right: 1px solid #119e01;
+  border-right: 1px solid white;
   height: 300px;
   margin: 2rem;
 
@@ -467,10 +695,10 @@ button[type="submit"]:hover {
 }
 .profile-links{
  text-decoration: none;
- color: inherit;
+ color: white;
 }
 .student-profile-section span{
-   padding-right: 2rem;
+   padding-right: 2rem ;
 
 }
 
@@ -482,103 +710,319 @@ margin-right: 300px;
 }
 
 .student-story-section #title{
-  color: #006400;
+  color: #ffffff;
   font-size: large;
   font-weight: bold;
+}
+
+.student-story-section #logout{
+  color: #ffffff;
 }
 #story-input{
   height: 400px;
 
 }
 
+
 .welcome-user{
-  color: #006400;
+  color: #ffffff;
   text-align: center;
   align-items: center;
+  margin-top: 100px;
 }
 
 #logout{
-  border-top: 1px solid #119e01;
+  border-top: 1px solid white;
   
 }
 
-                                                    /* create campaign CSS */
 
-.container textarea{
-  background-color: #F9F1E9;
-}
-body{
-  font-size: 18px;
-  font-family: Arial, Helvetica, sans-serif;
-}
-.container input[type="submit"]{
-  width: 95px;
-  height: 50px;
-  border-radius: 5px;
-  margin-left: 250px;
-  background-color: #43B02A;
-  color: white;
-}
-.container input[type="text"],
-input[type="email"]
-{
-  border-radius: 10px;
-  width: 200px;
-  height: 30px;
-}
+                                                    /* Create Campaign goes here */
 
-/* .container input[type="checkbox"]{
-  width: 29px;
-  height: 20px;
-} */
-
-.container form {
+.create-campaign-container{
+ 
   display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.container{
-   margin-bottom: 1rem;
-}
-.container label{
-  font-size: 15px;
+  flex-direction: row;
+  padding: 10px;
+  margin: 5px;
+  justify-content: space-around;
+  
 }
 
-
-/* Styles for screens with a maximum width of 600px (e.g., mobile devices) */
-@media (max-width: 600px) {
-body {
-font-size: 10px; /* Decrease font size for smaller screens */
+#create-campaign-main-container h1{
+color: #ffffff;
 }
 
-.container
-/* input[type="email"], */
-textarea {
-width: 100%; /* Make form fields full width on small screens */
-margin: 5px 0; /* Add some spacing between form fields */
+#create-campaign-main-container{
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  margin: 0;
+  background-image: url('../public/wood.jpg');
+  background-size: contain;
 }
 
-.container input[type="submit"] {
-width: 120%; /* Make the submit button full width */
-margin-left: 0; /* Remove left margin */
-height: 120%;
-}
-
-.container table {
-width: fit-content; /* Make the table full width on small screens */
-margin: 20px;
-}
-
-/* Center align the text within table cells */
-.container td {
-text-align: center;
-}
-
-}
-
-.container td #email {
-  text-align: center;
-  width: 80%;
+@media (max-width:768px){
+  #create-campaign-main-container input::placeholder {
+    font-size: 8px; /* Adjust the font size as needed */
+    }
   }
 
-                                                    /* SignUp goes here */
+
+@media (max-width: 768px){
+  #create-campaign-main-container .create-campaign-container{
+    display: flex;
+    flex-direction: column;
+
+  }
+}
+
+@media (max-width: 768px){
+  #create-campaign-main-container .createCampaign-input{
+    gap: 5px;
+    margin: 5px;
+    display: block;
+    width: 300px;
+    height: 40px;
+    border-radius: 5px;
+    text-align: center;
+  }
+}
+.createCampaign-input{
+  gap: 5px;
+  margin: 5px;
+  display: block;
+  width: 400px;
+  height: 50px;
+  border-radius: 5px;
+  text-align: center;
+  font-size: medium;
+  background-color: rgb(133, 127, 127);
+  border: 1px solid white;
+}
+
+#create-campaign-main-container input[type="email"]{
+  gap: 5px;
+  margin: 5px;
+  display: block;
+  width: 400px;
+  height: 50px;
+  border-radius: 5px;
+  text-align: center;
+  font-size: medium;
+}
+
+@media (max-width: 768px){
+  #create-campaign-main-container input[type="email"]{
+    gap: 5px;
+    margin: 5px;
+    display: block;
+    width: 300px;
+    height: 40px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: medium;
+  }
+}
+
+@media (max-width: 768px){
+  #create-campaign-main-container #create-campaign-button{
+    width: 200px;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    background-color: #119e01;
+    font-weight: bold;
+    font-size: small;
+    color: white;
+    cursor: pointer;
+    margin: 10px
+    
+  } 
+}
+
+.agree-create-campaign{
+  height: 15px;
+  align-items: center;
+  color: white;
+  font-size: large;
+  margin-left: 15px;
+}
+
+.agree-create-campaign input[type="checkbox"]{
+  transform: scale(2);
+  margin-right: 10px;
+}
+
+
+#create-campaign-button{
+  width: 300px;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  background-color: #119e01;
+  font-weight: bold;
+  font-size: medium;
+  color: white;
+  cursor: pointer;
+  margin: 10px;
+}
+
+@media (max-width: 768px){
+  #create-campaign-main-container #create-campaign-cancel-button{
+    width: 200px;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    background-color: #9e0101;
+    font-weight: bold;
+    font-size: small;
+    color: white;
+    cursor: pointer;
+    margin: 10px
+    
+  } 
+}
+
+#create-campaign-cancel-button{
+  width: 300px;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  background-color: #9e0101;
+  font-weight: bold;
+  font-size: medium;
+  color: white;
+  cursor: pointer;
+  margin: 10px;
+}
+
+#create-campaign-button:active{
+  background-color: #43d02a;
+  transform: translateY(4px);
+}
+
+#create-campaign-cancel-button:active{
+  background-color: #d03d2a;
+  transform: translateY(4px);
+}
+
+
+@media(max-width: 768px){
+  #create-campaign-main-container .createCampaign-label {
+    font-size: small;
+    font-weight: bold;
+  }
+}
+
+.createCampaign-label {
+  font-size: medium;
+  font-weight: bold;
+  color: white;
+}
+
+@media(max-width: 768px){
+  #create-campaign-main-container #image-uploader-div{
+    width: 200px;
+    height: 150px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+  }
+}
+
+
+#image-uploader-div{
+  border: 2px dashed #43d02a;
+  margin: 10px;
+  width: 400px;
+  height: 150px;
+  cursor: pointer;
+  font-size: medium;
+  font-weight: bold;
+  padding-top: 15px;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+@media(max-width: 768px){
+.signUp-form #image-uploader-div-institution{
+    width: 300px;
+    height: 150px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+
+  }
+}
+
+#image-uploader-div-institution{
+  border: 2px dashed #43d02a;
+  border-radius: 10px;
+  margin: 10px;
+  width: 400px;
+  height: 150px;
+  cursor: pointer;
+  font-size: medium;
+  font-weight: bold;
+  padding-top: 15px;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.uploaded-row{
+margin: 10px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 15px 20px;
+border-radius: 5px;
+background-color: #e9f0ff;
+}
+
+.uploaded-content{
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+@media(max-width: 768px){
+  #create-campaign-main-container .textarea{
+    width: 300px;
+    height: 150px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+  }
+}
+
+.textarea{
+width: 400px;
+height: 200px;
+border-radius: 20px;
+text-align: center;
+padding: 10px;
+font-size: large;
+background-color: rgb(133, 127, 127);
+border: 1px solid white;
+
+
+}
+
+#profile{
+  padding:10px ;
+  
+}
+
+@media (max-width: 768px){
+  #create-campaign-main-container #profile{
+    display: block;
+    
+  }
+  
+}

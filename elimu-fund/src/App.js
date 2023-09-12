@@ -9,16 +9,16 @@ import Payment from './pages/Payment';
 import AddStudentForm from "./components/AddStudentForm"
 
 import { BrowserRouter as Router,Routes, Route} from 'react-router-dom';
-import NavBar from './components/NavBar';
 import StudentDashboard from './components/StudentDashboard';
 import CreateCampaign from './components/CreateCampaign';
 import Registration from './pages/Registration';
-
+import UniversityDashboard from './components/UniversityDashboard';
+import FundraiserDetails from './components/FundraiserDetails';
 
 const App = () =>{
   return(
       <Router>
-      <NavBar/>
+      
           <Routes>
               <Route exact path='/' element={<Home/>}></Route>
               <Route exact path='/about' element={<About/>}></Route>
@@ -30,6 +30,10 @@ const App = () =>{
               <Route exact path='/studentDashboard' element={<StudentDashboard />}></Route>
               <Route exact path='/createCampaign' element={<CreateCampaign />}></Route>
               <Route exact path='/registration' element={<Registration />}></Route>
+              <Route exact path='/universityDashboard' element={<UniversityDashboard />}></Route>
+              <Route exact path='/fundraiser' element={<FundraiserDetails />}></Route>
+              
+              
 
             </Routes>
          </Router>
