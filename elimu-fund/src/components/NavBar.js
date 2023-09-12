@@ -21,13 +21,7 @@ const NavBar = () => {
                     <li><Link className=" nav-link" to="/about">About Us</Link></li>
                     <li><Link className=" nav-link" to="/faqs">FAQs</Link></li>
                     <li><Link className=" nav-link" to="/login">Login</Link></li>
-                    {/* <li className ="language-dropdown">Language
-                        <ul className="language-dropdown-content">
-                            <li>English</li>
-                            <li>Swahili</li>
-                        </ul>
                     
-                    </li> */}
                 </ul>
             </nav>
             
@@ -39,7 +33,7 @@ const NavBar = () => {
 
             <div className="motto">
                <p> A hand to save <br></br>a Tanzanian <br></br>student's education</p>
-               <button className="start-elimufund-button">START ElimuFund</button>
+               <Link to="/login"><button className="start-elimufund-button">START ElimuFund</button></Link>
             </div>
             </div>
            

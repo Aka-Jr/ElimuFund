@@ -15,6 +15,7 @@ body {
   background-color: #43d02a;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
+  padding: 10px;
 
 }
 
@@ -23,7 +24,7 @@ body {
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 25px;
   }
 }
 
@@ -33,7 +34,7 @@ body {
 .navBar{
     margin: 3rem;
     padding: 1rem;
-    background-color: #dee9dc;
+    background-color: white;
     display: flex;
     color: white;
     border-radius: 50px;
@@ -259,8 +260,8 @@ transition: color .3s ease-in-out;
     /* The div containing the cards for testimonies and donation starting here  */
 
 .root{
-    display:inline-block;
-    /* flex-direction:row; */
+    display: flex;
+    
     padding: 10px;
     align-items: center;
     justify-content: center;
@@ -299,6 +300,20 @@ transition: color .3s ease-in-out;
      width:250px;
      
     }
+
+    .student-dashboard-card{
+      border: 1px solid #43d02a;
+      padding-left: 1px;
+      margin-left: 2rem;
+      margin-right: 2rem;
+      border-radius: 10px;
+      text-align: center;
+      height: fit-content;
+      width:300px;
+      color: white;
+      font-size: medium;
+      
+    }
     
     /* .card-header{
       padding: 5px;
@@ -334,6 +349,71 @@ transition: color .3s ease-in-out;
       font-weight: bold;
       margin-top: 50px;
       margin-bottom: 50px;
+    }
+
+    #seeMore-button{
+      align-items: center;
+      justify-content: center;
+      border: none;
+      background-color: #119e01;
+      color: white;
+      cursor: pointer;
+      border-radius:50%;
+      height: 50px;
+      width: 50px;
+      margin: 10px;
+
+    }
+
+    #seeLess-button{
+      align-items: center;
+      justify-content: center;
+      border: none;
+      background-color: #119e01;
+      color: white;
+      cursor: pointer;
+      border-radius:50%;
+      height: 50px;
+      width: 50px;
+      margin: 10px;
+
+    }
+
+    .the-line-container{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      height: 200px;
+    }
+
+    .the-line{
+      width: 0;
+      height: 0;
+      border-left: 20px solid transparent;
+      border-right: 20px solid transparent;
+      border-bottom: 40px solid #43d02a;
+      position: relative;
+      margin: 0 10px;
+      transition: transform 0.3s, color 0.3s;
+    }
+
+    .the-line:hover{
+      border-bottom: 40px solid #640000;
+      transform: rotate(180deg);
+      cursor: pointer;
+    }
+
+    .ongoing-campaign-text{
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .ongoing-campaign-text:hover{
+      cursor: pointer;
+      color: #43d02a;
+      font-size: 30px;
+      transition: .3s ease-in-out;
     }
 
     .fundraiserName{
@@ -389,6 +469,11 @@ transition: color .3s ease-in-out;
       margin-top: 10px;
       width: 40%;
       height: 40%;
+      border-radius: 50%;
+    }
+
+    .fundraiser-link{
+      text-decoration: none;
     }
 
     /* ============================                            ========================= */
@@ -452,7 +537,7 @@ transition: color .3s ease-in-out;
       left: 0;
       right: 0;
       text-align: center;
-      margin-top: 10%;
+      margin-top: 5%;
       background-color: aliceblue;
       justify-content: space-around;
       }

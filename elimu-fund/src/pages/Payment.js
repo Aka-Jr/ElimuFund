@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import '../App.css';
+import {Link} from 'react-router-dom';
+import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 
     // const PaymentInfo = () => {
 
@@ -18,6 +20,9 @@ const Payment = () => {
   };
 
   return (
+
+    <>
+
     <div className="Payment-container">
       <div className="Payment-option">
         <button className="paymentButton" onClick={() => handlePaymentOptionClick('Mpesa')}>
@@ -49,101 +54,98 @@ const Payment = () => {
           </>
         )}
         <button className="seeMoreButton" onClick={() => setShowMoreOptions(!showMoreOptions)}>
-          {showMoreOptions ? "See Less" : "See More"}
+          {showMoreOptions ? <FaAngleLeft  color="white" size={30}/>  : <FaAngleRight color="white" size={30}/>}
         </button>
     </div>
            <center><h1>Payment details</h1></center> 
+
+
         <form >
-            <div className="payment-details">
-        <div className="form-group">
-           
-                <div className="label-wrapper">
-                <label htmlFor="Name">Name</label>
-                </div>
+            <label 
+            htmlFor="Name"
+            className="payment-label"
+            >Name
+                  <input
+                  type="text"
+                  id="Name"
+                  name="Name"
+                  placeholder="(optional)" 
+                  className="payment-input"
+                  />
+            </label>
+               <label 
+               htmlFor="Email"
+               className="payment-label"
+               >Email
+                      <input
+                          type={"email"}
+                          className="payment-input"
+                          placeholder="enter email" 
 
-                <div className="input-wrapper">
-                            <input
+                          style={
+                            {
+                              gap: '5px',
+                              margin: '5px',
+                              display: 'block',
+                              width: '400px',
+                              height: '50px',
+                              borderRadius:' 5px',
+                              textAlign: 'center',
+                              fontSize: '16px',
+                            }
+                          }
+                      />
+               </label>
+               <label htmlFor="phoneNo"
+               className="payment-label"
+               >Phone No
+                      <input
                         type="text"
-                        id="Name"
-                        name="Name"
-                        placeholder="(optional)" // Placeholder text
-                        style={{ textAlign: "center" }} // Center-align the placeholder text
+                        id="phoneNo"
+                        name="phoneNo"
+                        className="payment-input"
+                        placeholder="enter phone number" 
+                        />
+        </label>
+ 
+             <label
+              htmlFor="amount"
+              className="payment-label"
+             
+             >Amount
+                  <input
+                      type="text"
+                      id="amount"
+                      name="amount"
+                      className="payment-input"
+                      placeholder="enter amount" 
                     />
-                </div>
-         
-          
-        </div>
-        <div className="form-group">
-        <div className="label-wrapper">
-                <label htmlFor="Email">Email</label>
-                </div>
-
-            <div className="input-wrapper">
-                        <input
-                    type="email"
-                    id="Email"
-                    name="Email"
-                />
-            </div>
-          
-         
-        </div>
-        <div className="form-group">
-
-        <div className="label-wrapper">
-        <label htmlFor="phoneNo">Phone No</label>
-                </div>
-
-            <div className="input-wrapper">
-            <input
-            type="text"
-            id="phoneNo"
-            name="phoneNo"
-            />
-            </div>
-         
-          
-        </div>
-        <div className="form-group">
-
-        <div className="label-wrapper">
-        <label htmlFor="amount">Amount</label>
-                </div>
-
-            <div className="input-wrapper">
-            <input
-            type="text"
-            id="amount"
-            name="amount"
-          />
-            </div>
-          
-         
-          </div>
-          <div className="form-group">
-            
-          <div className="label-wrapper">
-          <label htmlFor="targetPerson">Target Person</label>
-                </div>
-
-            <div className="input-wrapper">
-            <input
-            type="text"
-            id="targetPerson"
-            name="targetPerson"
-            placeholder="(optional)" 
-            style={{ textAlign: "center" }} // Center-align the placeholder text
-          />
-            </div>
-          
-          </div>
-          <p>
-          <button type="submit" >Make Payment</button>
+             
+             </label>
+              
+          <label 
+          htmlFor="targetPerson"
+          className="payment-label"
+          >Target Person
+                      <input
+                        type="text"
+                        id="targetPerson"
+                        name="targetPerson"
+                        placeholder="(optional)" 
+                    
+                        className="payment-input"
+                      />
+          </label>
+          <p className="makepayment-buttons">
+          <button type="submit" className="makepayment-button">Make Payment</button>
+          <Link to="/"><button   className="makepayment-cancel-button">Cancel</button></Link>
           {/* onClick={PaymentInfo()} */}
-      </p>  
-            </div>  
+      </p> 
+        
+           
       </form>
     </div>
+    </>
   );
 }
 

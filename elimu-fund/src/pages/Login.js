@@ -1,95 +1,92 @@
-import React,{useState} from 'react';
-import '../App.css';
-import { Link, useNavigate } from 'react-router-dom';
-
-import request from 'superagent';
-
-
-//function to handle log in
-
+import React, { useState } from "react";
+import "../App.css";
+import { Link, useNavigate } from "react-router-dom";
+import request from "superagent";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
-
-  const [registration_number, setRegistrationNumber] = useState('');
-  const [password, setPassword] = useState('');
-  const [message, setMessage] = useState('');
+  const [identity, setIdentity] = useState("");
+  const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleLogin = () => {
-    request
-      .post('http://localhost:5000/students/login')
-      .send({ registration_number, password })
-      .then(response => {
-        if (response.body.error === false) {
-          setMessage('Login successful');
+  const handleLogin = async () => {
+    try {
+      if (!identity || !password) {
+        throw new Error("Please fill in both email/registration number and password");
+      }
 
+      const response = await request
+        .post("http://localhost:5000/login")
+        .send({ identity, password });
 
-          const token = response.body.token;
-
-        // Store the token in localStorage or a secure storage mechanism
-        localStorage.setItem('token', token);
-
-
-
-
-          //route to other pages with session
-          navigate('/faqs');
-        } else {
-          setMessage('Invalid credentials');
-          //res.status(401).send('Authentication failed');
-        }
-      })
-          .catch(error => {
-        console.error(error);
-        setMessage('An error occurred during login');
-      });
+      if (response.body.error === false) {
+        toast.success("Login successful");
+        navigate("/studentDashboard"); // Implement navigation based on user role
+      } else {
+        toast.error("Invalid credentials");
+      }
+    } catch (error) {
+      console.error(error);
+      toast.error("An error occurred during login");
+    }
   };
-//*** function finished******* */
-    return(
 
+  return (
     <div className="login-container">
       <h1>Sign In</h1>
-    
-        <div className="loginForm">
+      <div className="loginForm">
         <input
           type="text"
-          name="registration_number"
-          placeholder="registration Number"
-          onChange={e => setRegistrationNumber(e.target.value)}
+          name="identity"
+          placeholder="Email or Registration Number"
+          onChange={(e) => setIdentity(e.target.value)}
+          className="signIn-input"
         />
         <input
           type="password"
           name="password"
           placeholder="Password"
-          onChange={e => setPassword(e.target.value)}
+          onChange={(e) => setPassword(e.target.value)}
+          className="signIn-input"
         />
-        <div className='forgotpassword'>
-        <label>
-          <p>Forgot password?</p>
-        </label>
-        <p> Don't have account?  <Link className=" nav-link" to="/signUp">SignUp</Link></p>
+        <div className="forgotpassword">
+          <label>
+            <p>
+              Forgot password?{" "}
+              <Link className="loginLink" to="/password-reset">
+                Reset
+              </Link>
+            </p>
+          </label>
+          <p>
+            Don't have an account?{" "}
+            <Link className="loginLink" to="/signUp">
+              SignUp
+            </Link>
+          </p>
         </div>
         <br />
-
-
-        <button type="submit" onClick={handleLogin}>Sign In</button>
-        <p>{message}</p>
-        </div>
-   
-
+        <button id="sign-button" type="submit" onClick={handleLogin}>
+          Sign In
+        </button>
+      </div>
       <div className="separator"></div>
-      <div className='buttons'>
-      <div className="create-account-button">
-        <button className="student-button">Create Account as Student</button>
+      <div className="buttons">
+        <div className="create-account-button">
+          <button className="student-button">Create Account as Student</button>
+        </div>
+        <div className="register-institution-button">
+          <Link  to="/registration">
+          <button className="institution-button">
+            Register your Institution 
+          </button>
+            </Link>
+        </div>
       </div>
-       <div className="register-institution-button">
-        <button className="institution-button">Register your Institution</button>
-      </div>
-      </div>
-      
-
+      <ToastContainer position="top-right" autoClose={5000} />
     </div>
-    );
-}
+  );
+};
 
 export default Login;

@@ -59,304 +59,170 @@ db.connect( err =>{
 });
 
 app.listen(port, () =>{
-    console.log('Server is running on port ${port}')
+    console.log(`Server is running on port ${port}`)
     });
 // get all students api
 
-app.get('/students/all', function (req , res){
-    db.query('SELECT * FROM students', function (error, results ){
-        if (!error){
-            return res.send({
-                error: false,
-                data: results,
-                message: 'students list.'
-            });
-        } else {
-            throw error;
-        }
+// api for log in for all the users
 
-    });
-});
+// Import required modules and configure your app
 
-//todo check the code
-// students get by id
-
-
-app.get('/students/:id', function (req,res){
-    let registration_number = req.params.id;
-    if (!registration_number){
-        return res.status(400).send({
-            error: true,
-            message: 'Please provide fundraiser_id'
-        });
-    }
-// data query
-    db.query('SELECT * FROM students where id=?', registration_number , function (error, results, fields ){
-        if (!error){
-            return res.send({
-                error: false,
-                data: results[0],
-                message: 'students  list.'
-            });
-        } else {
-            throw error;
-        }
-
-    });
-});
-
-
-
-// API for student login by registration number and password
-//login form
-app.post('/students/login', (req, res) => {
-  const { registration_number, password } = req.body;
-
-  if (!registration_number || !password) {
-    return res.status(400).json({
-      error: true,
-      message: 'Both registration_number and password are required fields',
-    });
-  }
-
-  // Query to check if the student with the given registration number and password exists
-  const checkStudentQuery = 'SELECT * FROM students WHERE  registration_number = ? AND password = ?';
-
-  db.query(checkStudentQuery, [registration_number, password], (error, results) => {
-    if (error) {
-      console.error('Error checking student:', error);
-      return res.status(500).json({
-        error: true,
-        message: 'Error checking student',
-      });
-    }
-
-    if (results.length === 0) {
-      return res.status(401).json({
-        error: true,
-        message: 'Invalid registration number or password',
-      });
-    }
-
-
-    const user = results[0];
-    const token = generateToken(user);
-
-    // student is successfully authenticated, body
-    return res.status(200).json({
-      error: false,
-      message: 'Login successful',
-      user: {
-        id: user.id, // Include the 'id' from the user object
-        // Include other user details if needed
-      },
-      token: token,
-       // You can send user data if needed
-    });
-  });
-});
-
-
-
-// API for students to create accounts
-// sign up form
-app.post('/students/signUp', (req, res) => {
-    const  {
-    first_name,
-    last_name,
-    registration_number,
-    email,
-    password,
-    phone_number } = req.body;
-    //todo set the token and  session
-
-    if (!first_name || !last_name || !registration_number || !email || !password || !phone_number) {
-        return res.status(400).json({
-            error: true,
-            message: 'Please provide all required information.'
-        });
-    }
-
-    const dataToInsert = {
-        first_name,
-        last_name,
-        registration_number,
-        email,
-        password,
-        phone_number
-    };
-    // todo check if the student is valid on  the database
-
-    db.query('INSERT INTO students SET ?', dataToInsert, (err, results) => {
-        if (err) {
-            console.error(err);
-            return res.status(500).json({
-                error: true,
-                message: 'An error occurred while processing your request.'
-            });
-            }
-
-            return res.status(201).json({
-                error: false,
-                message: 'student uploaded successfully.'
-            });
-        });
-    });
-
-
-/********************institution********** */
-
-// API to register institution
-// institution registration form
-
-app.post('/institution/register', (req, res) => {
-    const { institution_password, leader_position, institution_email, institution_name, institution_leader, adress} = req.body;
-
-    if (!institution_password || !leader_position || !institution_email || !institution_name ||!institution_leader || !adress) {
+app.post('/login', (req, res) => {
+    const { identity, password } = req.body;
+  
+    if (!identity || !password) {
       return res.status(400).json({
         error: true,
-        message: 'fill all the data',
+        message: 'Please provide both identity and password.',
       });
     }
-
-    // Check if the email already exists in the database
-    const checkEmailQuery = 'SELECT COUNT(*) as count FROM institution WHERE institution_email = ?';
-
-    db.query(checkEmailQuery, [institution_email], (error, results) => {
-      if (error) {
-        console.error('Error checking email:', error);
+  
+    // Your authentication logic here
+    let query, table;
+  
+    // Search in the admin table
+    query = 'SELECT * FROM admin WHERE email = ? AND password = ?';
+    table = 'admin';
+  
+    db.query(query, [identity, password], (adminError, adminResults) => {
+      if (adminError) {
+        console.error(`Error when fetching data from ${table}`, adminError);
         return res.status(500).json({
           error: true,
-          message: 'Error checking email',
+          message: `Error occurred when fetching data from ${table}`,
         });
       }
-
-      const emailExists = results[0].count > 0;
-
-      if (emailExists) {
-        return res.status(409).json({
-          error: true,
-          message: 'Email already exists',
-        });
-      }
-
-      // If the email doesn't exist, proceed to insert the user
-      const insertQuery = 'INSERT INTO institution (institution_password, leader_position, institution_email, institution_name, institution_leader, adress) VALUES (?, ?, ?, ?, ?, ?)';
-
-      db.query(insertQuery, [institution_password, leader_position, institution_email, institution_name, institution_leader, adress], (error, results) => {
-        if (error) {
-          console.error('Error registering institution:', error);
-          return res.status(500).json({
-            error: true,
-            message: 'Error registering institution',
-          });
-        }
-
-        console.log('your institution registered successfully');
-        return res.status(201).json({
+  
+      if (adminResults.length > 0) {
+        // Admin successfully authenticated
+        const userData = adminResults[0];
+        return res.status(200).json({
           error: false,
-          message: 'your institution registered successfully',
+          message: `Login successful for ${table}`,
+          data: userData,
         });
-      });
+      } else {
+        // If not found in admin table, continue searching in other tables
+        query = 'SELECT role FROM users WHERE identity = ?';
+        table = 'users';
+  
+        db.query(query, [identity], (userError, userResults) => {
+          if (userError) {
+            console.error('Error in checking the user', userError);
+            return res.status(500).json({
+              error: true,
+              message: 'An error occurred during user verification.',
+            });
+          }
+  
+          const user = userResults[0];
+  
+          if (!user) {
+            return res.status(401).json({
+              error: true,
+              message: 'User not found.',
+            });
+          }
+  
+          const role = user.role;
+  
+          // Continue checking in other tables based on role
+          switch (role) {
+            case 1: // Admin (already checked)
+              break;
+            case 2: // Institution
+              query = 'SELECT * FROM institution WHERE institution_email = ? AND institution_password = ?';
+              table = 'institution';
+              break;
+            case 3: // Student
+              query = 'SELECT * FROM students WHERE registration_number = ? AND password = ?';
+              table = 'students';
+              break;
+            default:
+              return res.status(401).json({
+                error: true,
+                message: 'Invalid user role.',
+              });
+          }
+  
+          db.query(query, [identity, password], (innerError, results) => {
+            if (innerError) {
+              console.error(`Error when fetching data from ${table}`, innerError);
+              return res.status(500).json({
+                error: true,
+                message: `Error occurred when fetching data from ${table}`,
+              });
+            }
+  
+            if (results.length === 0) {
+              return res.status(401).json({
+                error: true,
+                message: 'Invalid credentials.',
+              });
+            }
+  
+            // The user successfully authenticated
+            const userData = results[0];
+  
+            return res.status(200).json({
+              error: false,
+              message: `Login successful for ${table}`,
+              data: userData,
+            });
+          });
+        });
+      }
     });
   });
-// institution log in
-app.post('/institution/login', (req, res) => {
-    const { institution_email, institution_password } = req.body;
 
-    if (!institution_password || !institution_email) {
-      return res.status(400).json({
-        error: true,
-        message: 'Both email and password are required fields',
-      });
-    }
-
-    // Query to check if the institution with the given email and password exists
-    const checkInstitutionQuery = 'SELECT * FROM institution WHERE institution_email = ? AND institution_password = ?';
-
-    db.query(checkInstitutionQuery, [institution_email, institution_password], (error, results) => {
+  
+  app.post('/students/signUp', (req, res) => {
+    const {
+      first_name,
+      last_name,
+      registration_number,
+      email,
+      password,
+      phone_number,
+    } = req.body;
+  
+    // Perform input validation and error handling here
+  
+    // For example, you can check if the email is already in use
+    db.query('SELECT * FROM students WHERE email = ?', [email], (error, results) => {
       if (error) {
-        console.error('Error checking institution:', error);
+        console.error('Error in checking duplicate email', error);
         return res.status(500).json({
           error: true,
-          message: 'Error checking user',
+          message: 'An error occurred during email verification.',
         });
       }
-
-      if (results.length === 0) {
-        return res.status(401).json({
+  
+      if (results.length > 0) {
+        return res.status(400).json({
           error: true,
-          message: 'Invalid email or password',
+          message: 'Email is already in use.',
         });
       }
-
-      // Institution is successfully authenticated
-      return res.status(200).json({
-        error: false,
-        message: 'Login successful',
-        user: results[0], // You can send Institution data if needed
-      });
+  
+      // Insert the new student record into the database
+      db.query('INSERT INTO students (first_name, last_name, registration_number, email, password, phone_number) VALUES (?, ?, ?, ?, ?, ?)',
+        [first_name, last_name, registration_number, email, password, phone_number],
+        (insertError, insertResult) => {
+          if (insertError) {
+            console.error('Error when inserting student data', insertError);
+            return res.status(500).json({
+              error: true,
+              message: 'An error occurred during student registration.',
+            });
+          }
+  
+          return res.status(201).json({
+            error: false,
+            message: 'Student registered successfully.',
+            data: insertResult,
+          });
+        });
     });
   });
-
-
-/*****************to register the valid candidates********** */
-
-
-
-/*this should be made by the institution in the */
-app.post('/valid_candidate/register', (req, res) => {
-    const  {
-        first_name,
-        last_name,
-        registration_number,
-        study_at,
-        email,
-        ammmount_remained,
-        phone_no,
-        control_number,
-        have_father,
-        have_mother,
-        candidates_disability,
-        mother_disability,
-        father_disability} = req.body;
-
-    if (!first_name || !last_name || !registration_number || !study_at || !email || !ammmount_remained || !phone_no || !control_number) {
-        return res.status(400).json({
-            error: true,
-            message: 'Please provide basic required information.'
-        });    }
-
-    const dataToInsert = {
-        first_name,
-        last_name,
-        registration_number,
-        study_at,
-        email,
-        ammmount_remained,
-        phone_no,
-        control_number,
-        have_father,
-        have_mother,
-        candidates_disability,
-        mother_disability,
-        father_disability};
-
-    db.query('INSERT INTO valid_candidates SET ?', dataToInsert, (err, results) => {
-        if (err) {
-            console.error(err);
-            return res.status(500).json({
-                error: true,
-                message: 'An error occurred while processing your request.'
-            });
-        }
-
-        return res.status(201).json({
-            error: false,
-            data: results,
-            message: 'student uploaded successfully.'
-        });
-    });
-});
-
-
+  
