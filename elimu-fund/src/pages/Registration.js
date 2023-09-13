@@ -8,19 +8,18 @@ import { MdCloudUpload, MdDelete } from "react-icons/md";
 import { AiFillFileImage } from "react-icons/ai";
 
 const Registration = () => {
-  const [first_name, setFirst_name] = useState("");
-  const [last_name, setLast_name] = useState("");
-  const [registration_number, setRegistration_number] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [phone_number, setPhone_number] = useState("");
+  const [institution_password, setInstitution_password] = useState("");
+  const [leader_position, setLeader_position] = useState("");
+  const [institution_name, setInstitution_name] = useState("");
+  const [institution_leader, setInstitution_leader] = useState("");
+  const [institution_email, setInstitution_email] = useState("");
   const [cf_psd, setCPassword] = useState("");
   const [message, setMessage] = useState("");
-  const [image, setImage] = useState("");
+  const [image, setImage] = useState("");// implement inserting the image
   const [fileName, setFileName] = useState("No selected file");
 
   const handlePasswordChange = (event) => {
-    setPassword(event.target.value);
+    setInstitution_password(event.target.value);
   };
 
   const handleCPasswordChange = (event) => {
@@ -31,18 +30,17 @@ const Registration = () => {
 
   const handleSignUp = () => {
     axios
-      .post("http://localhost:5000/students/signUp", {
-        first_name,
-        last_name,
-        registration_number,
-        email,
-        password,
-        phone_number,
+      .post("http://localhost:5000/institution/registeration", {
+        institution_password,
+        leader_position,
+        institution_name,
+        institution_email,
+        institution_leader
       })
       .then((response) => {
         if (response.data.error === false) {
           toast.success("Sign-up successful");
-          navigate("/faqs");
+          navigate("/login");
         } else {
           toast.error("Something is missing!");
         }
@@ -66,8 +64,8 @@ const Registration = () => {
             id="institution_name"
             name="institution_name"
             required
-            value={first_name}
-            onChange={(e) => setFirst_name(e.target.value)}
+            value={institution_name}
+            onChange={(e) => setInstitution_name(e.target.value)}
             placeholder="Enter institution name"
             className="signUp-input"
           />
@@ -77,11 +75,11 @@ const Registration = () => {
           Institution Email
           <input
             type="email"
-            id="email"
-            name="email"
+            id="institution_email"
+            name="institution_email"
             required
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            value={institution_email}
+            onChange={(e) => setInstitution_email(e.target.value)}
             placeholder="Enter email"
             className="signUp-input"
           />
@@ -91,11 +89,11 @@ const Registration = () => {
           Your Name
           <input
             type="text"
-            id="institution-admin"
-            name="institution-admin"
+            id="institution_leader"
+            name="institution_leader"
             required
-            value={registration_number}
-            onChange={(e) => setRegistration_number(e.target.value)}
+            value={institution_leader}
+            onChange={(e) => setInstitution_leader(e.target.value)}
             placeholder="Enter your name"
             className="signUp-input"
           />
@@ -105,11 +103,11 @@ const Registration = () => {
           Your Position
           <input
             type="text"
-            id="institution-admin-position"
-            name="institution-admin-position"
+            id="leader_position"
+            name="leader_position"
             required
-            value={phone_number}
-            onChange={(e) => setPhone_number(e.target.value)}
+            value={leader_position}
+            onChange={(e) => setLeader_position(e.target.value)}
             placeholder="Enter your position"
             className="signUp-input"
           />
@@ -119,10 +117,10 @@ const Registration = () => {
           Password
           <input
             type="password"
-            id="password"
-            name="password"
+            id="institution_password"
+            name="institution_password"
             required
-            value={password}
+            value={institution_password}
             onChange={handlePasswordChange}
             placeholder="Enter password"
             className="signUp-input"
