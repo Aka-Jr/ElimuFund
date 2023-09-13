@@ -16,7 +16,12 @@ const NavBar = () => {
             <MobileNavbar/>
             <nav className =" navBar">
                 <ul className = "nav-element">
-                    <li className="search-icon">Search</li>
+                    <li className="search-icon"><input
+                    type="text"
+                    placeholder= "Search"
+                    id="search-input"
+
+                    ></input></li>
                     <li><span></span><Link className=" nav-link" to="/">Home</Link></li>
                     <li><Link className=" nav-link" to="/about">About Us</Link></li>
                     <li><Link className=" nav-link" to="/faqs">FAQs</Link></li>
