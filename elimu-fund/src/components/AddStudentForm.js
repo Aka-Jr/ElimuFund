@@ -1,6 +1,7 @@
-import React, { useState } from "react";
-import "../App.css";
-import axios from "axios";
+import React, { useState } from 'react';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import '../App.css';
 
 const AddStudentForm = () => {
   const [studentData, setStudentData] = useState({
@@ -22,6 +23,12 @@ const AddStudentForm = () => {
     },
   });
 
+
+
+const AddStudentForm = () => {
+  const [hasSponsorship, setHasSponsorship] = useState(false);
+  const [parentType, setParentType] = useState('none');
+
   const toggleSponsorship = () => {
     setStudentData({
       ...studentData,
@@ -29,15 +36,68 @@ const AddStudentForm = () => {
     });
   };
 
-  const handleParentsChange = (event) => {
-    const { name, checked } = event.target;
-    setStudentData({
-      ...studentData,
-      parents: {
-        ...studentData.parents,
-        [name]: checked,
-      },
-    });
+
+  const handleParentChange = (event) => {
+    const { value } = event.target;
+    setParentType(value);
+  };
+
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+
+    const emailInput = event.target.elements.Email.value;
+    const emailRegex = /^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/;
+
+    if (!emailInput.trim()) {
+      toast.error('Email address is required');
+      return;
+    }
+
+    if (!emailRegex.test(emailInput)) {
+      toast.error('Invalid email address');
+      return;
+    }
+
+  
+    const firstNameInput = event.target.elements.FirstName.value;
+    if (!firstNameInput.trim()) {
+      toast.error('First Name is required');
+      return;
+    }
+
+    const surnameInput = event.target.elements.Surname.value;
+    if (!surnameInput.trim()) {
+      toast.error('SurName is required');
+      return;
+    }
+
+    const regNoInput = event.target.elements.RegNo.value;
+    if (!regNoInput.trim()) {
+      toast.error('Registration number is required');
+      return;
+    }
+
+    const phoneInput = event.target.elements.Phone.value;
+    if (!phoneInput.trim()) {
+      toast.error('Phone number is required');
+      return;
+    }
+
+    const yearOfStudyInput = event.target.elements.YearOfStudy.value;
+    if (!yearOfStudyInput.trim()) {
+      toast.error('Year of Study is required');
+      return;
+    }
+
+
+
+    // Add additional form validation logic here for other fields
+
+    // If all validations pass, proceed with form submission
+    // ...
+
+    toast.success('Form submitted successfully');
+
   };
 
   const handleInputChange = (event) => {
@@ -66,7 +126,8 @@ const AddStudentForm = () => {
       <h1>
         <center>Application Form</center>
       </h1>
-      <form>
+
+      <form id="addStudentForm" onSubmit={handleFormSubmit}>
         <div className="name-inputs">
           <input
             type="text"
@@ -122,10 +183,9 @@ const AddStudentForm = () => {
           />
         </div>
 
-        {/* Checkbox and radio button inputs */}
         <div className="separator"></div>
         <div className="sponsorship-section">
-          <label className="sponsorship-label" htmlFor="hasSponsorship">
+
             Does the student have any sponsorship?
           </label>
           <div className="sponsorship-checkbox">
@@ -133,61 +193,69 @@ const AddStudentForm = () => {
               type="checkbox"
               id="hasSponsorship"
               name="hasSponsorship"
-              checked={studentData.hasSponsorship}
+
               onChange={toggleSponsorship}
             />
           </div>
         </div>
 
         <div className="parents-section">
-          <label className="parents-label">Parents that the student has:</label>
-          <div className="parent-checkbox">
-            <label htmlFor="both-parents">Both parents</label>
-            <input
-              type="checkbox"
-              id="both-parents"
-              name="parents.both_parents"
-              checked={studentData.parents.both_parents}
-              onChange={handleParentsChange}
-            />
-          </div>
 
-          <div className="parent-checkbox">
-            <label htmlFor="father">Father</label>
-            <input
-              type="checkbox"
-              id="father"
-              name="parents.father"
-              checked={studentData.parents.father}
-              onChange={handleParentsChange}
-            />
+          <label className="addStudentForm-label">
+            Parents that the student has:
+          </label>
+          <div className="parent-radio">
+            <label className="parent-label" >
+              <input
+                type="radio"
+                name="parentType"
+                value="both"
+                checked={parentType === 'both'}
+                onChange={handleParentChange}
+              />
+              Both parents
+            </label>
           </div>
-
-          <div className="parent-checkbox">
-            <label htmlFor="mother">Mother</label>
-            <input
-              type="checkbox"
-              id="mother"
-              name="parents.mother"
-              checked={studentData.parents.mother}
-              onChange={handleParentsChange}
-            />
+          <div className="parent-radio">
+            <label>
+              <input
+                type="radio"
+                name="parentType"
+                value="father"
+                checked={parentType === 'father'}
+                onChange={handleParentChange}
+              />
+              Father
+            </label>
           </div>
-
-          <div className="parent-checkbox">
-            <label htmlFor="none">None</label>
-            <input
-              type="checkbox"
-              id="none"
-              name="parents.none"
-              checked={studentData.parents.none}
-              onChange={handleParentsChange}
-            />
+          <div className="parent-radio">
+            <label>
+              <input
+                type="radio"
+                name="parentType"
+                value="mother"
+                checked={parentType === 'mother'}
+                onChange={handleParentChange}
+              />
+              Mother
+            </label>
+          </div>
+          <div className="parent-radio">
+            <label>
+              <input
+                type="radio"
+                name="parentType"
+                value="none"
+                checked={parentType === 'none'}
+                onChange={handleParentChange}
+              />
+              None
+            </label>
           </div>
         </div>
 
         <div className="separator"></div>
-        <label className="parents-label">Student disability</label>
+        <label className="addStudentForm-label">Student's disability</label>
         <div className="studentdisability">
           <input
             type="text"
@@ -198,36 +266,11 @@ const AddStudentForm = () => {
           />
         </div>
 
-        <label className="parents-label">Parent's disability:</label>
-        <div className="father">
-          <label htmlFor="father_disability">Father</label>
-          <input
-            type="text"
-            id="father_disability"
-            name="father_disability"
-            value={studentData.father_disability}
-            className="addstudentform-inputs"
-            onChange={handleInputChange}
-          />
-        </div>
-
-        <div className="mother">
-          <label htmlFor="mother_disability">Mother</label>
-          <input
-            type="text"
-            id="mother_disability"
-            name="mother_disability"
-            value={studentData.mother_disability}
-            className="addstudentform-inputs"
-            onChange={handleInputChange}
-          />
-        </div>
-        <hr className="separator" />
-        <button type="button" onClick={handleAddStudentForm}>
           Submit
         </button>
         <hr className="separator" />
       </form>
+      <ToastContainer position="top-right" autoClose={5000} />
     </div>
   );
 };

@@ -72,12 +72,6 @@ const Login = () => {
               </Link>
             </p>
           </label>
-          <p>
-            Don't have an account?{" "}
-            <Link className="loginLink" to="/signUp">
-              SignUp
-            </Link>
-          </p>
         </div>
         <br />
         <button id="sign-button" type="submit" onClick={handleLogin}>
@@ -85,9 +79,15 @@ const Login = () => {
         </button>
       </div>
       <div className="separator"></div>
+      <p>
+            Don't have an account?{" "}
+            
+          </p>
       <div className="buttons">
         <div className="create-account-button">
-          <button className="student-button">Create Account as Student</button>
+        <Link className="loginLink" to="/signUp">
+            <button className="student-button">Create Account as Student</button>
+            </Link>
         </div>
         <div className="register-institution-button">
           <Link  to="/registration">

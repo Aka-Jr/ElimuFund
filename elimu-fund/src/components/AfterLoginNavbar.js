@@ -8,7 +8,7 @@ import '../App.css';
 
 const AfterLoginNavbar = () => {
     return (
-        <div className = "top">
+        <div className = "after-login-top">
         <div className ="nav-div">
         <div className ="logo">
             <span className="dual-color">ELIMUFUND</span>
