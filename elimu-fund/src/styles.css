@@ -34,7 +34,7 @@ body {
 .navBar{
     margin: 3rem;
     padding: 1rem;
-    background-color: white;
+    background-color: #43d02a;
     display: flex;
     color: white;
     border-radius: 50px;
@@ -224,8 +224,8 @@ margin-bottom: 10px;
 /* ============================                            ========================= */
              /* The navigation link (li) of the navigation bar starting here  */
 .nav-link:hover{
-font-size: larger;
-color: #43d02a;
+font-size: large;
+color: white;
 font-stretch: expanded;
 transition: color .3s ease-in-out;
 }
