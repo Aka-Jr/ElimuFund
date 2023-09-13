@@ -409,76 +409,13 @@ app.post("/students/signUp", (req, res) => {
   /**********************************to register the valid candidates****************** */
 
   /*this should be made by the institution in the */
-  app.post("/valid_candidate/register", (req, res) => {
-    const {
-      first_name,
-      last_name,
-      registration_number,
-      study_at,
-      email,
-      ammmount_remained,
-      phone_no,
-      control_number,
-      have_father,
-      have_mother,
-      candidates_disability,
-      mother_disability,
-      father_disability,
-    } = req.body;
 
-    if (
-      !first_name ||
-      !last_name ||
-      !registration_number ||
-      !study_at ||
-      !email ||
-      !ammmount_remained ||
-      !phone_no ||
-      !control_number
-    ) {
-      return res.status(400).json({
-        error: true,
-        message: "Please provide basic required information.",
-      });
-    }
 
-    const dataToInsert = {
-      first_name,
-      last_name,
-      registration_number,
-      study_at,
-      email,
-      ammmount_remained,
-      phone_no,
-      control_number,
-      have_father,
-      have_mother,
-      candidates_disability,
-      mother_disability,
-      father_disability,
-    };
 
-    db.query(
-      "INSERT INTO valid_candidates SET ?",
-      dataToInsert,
-      (err, results) => {
-        if (err) {
-          console.error(err);
-          return res.status(500).json({
-            error: true,
-            message: "An error occurred while processing your request.",
-          });
-        }
 
-        return res.status(201).json({
-          error: false,
-          data: results,
-          message: "student uploaded successfully.",
-        });
-      }
-    );
-  });
 
+
+  
   //**********************creating new compaigns ****************************/
   // api to create new compaign
   app.post("/createCompaign", (req, res) => {
