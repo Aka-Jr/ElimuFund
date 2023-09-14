@@ -50,18 +50,19 @@ const SignUp = () => {
 
       if (response.data.error === false) {
         toast.success("Sign-up successful");
-        navigate("/studentDashboard");
+        navigate("/login");
       } else {
         toast.error("Something is missing!");
       }
     } catch (error) {
       toast.error("An error occurred during registration");
     }
+   
   };
 
   return (
-    <div className="signUp-form-container">
-      
+    <>
+                      <center>
       <form id="signUp-form" onSubmit={handleSubmit}>
       <center>
           <h1>Sign up</h1>
@@ -183,7 +184,8 @@ const SignUp = () => {
        
       </form>
       <ToastContainer position="top-right" autoClose={5000} />
-    </div>
+      </center>
+    </>
   );
 };
 

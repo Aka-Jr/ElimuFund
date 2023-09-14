@@ -499,17 +499,58 @@ text-align: 3rem;
   padding: 10px;
   justify-content: center;
   align-items: center;
-  display: block;
+  display: flex;
  
  }
- #about-elimufund #mission{
-  float: left;
+ #about-elimufund .aboutUs-containers{
+
   height:auto;
-  width: 600px;
+  width: 100%;
   border-radius: 20px;
   margin-right: 1rem;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(67, 208, 42, 0.1);
+  margin: 2rem;
+  box-shadow: 0px 0px 10px rgba(67, 208, 0, 0.7);
+  padding: 10px;
+  transition: transform 0.3s ease;
+  
   
    }
+
+   #about-elimufund .aboutUs-containers:hover{
+
+    transform: translateY(-10px);
+    cursor: pointer;
+     }
+  
+
+   #about-elimufund h3, p, h1{
+    text-align: center;
+   }
+
+   #about-elimufund{
+    height:auto;
+    width: 60%;
+    border-radius: 20px;
+    margin-right: 1rem;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+   }
+/* 
+   #about{
+    height:auto;
+    border: 1px solid black;
+    width: 100%;
+    border-radius: 20px;
+    margin-right: 1rem;
+    justify-content: center;
+    align-items: center;
+    background-color: #fffcfc;
+    margin: 2rem;
+   } */
 
    #about-elimufund #vision{
     float: right;
@@ -565,30 +606,25 @@ clear: left;
   line-height: 1.5;
   font-size: 18px;
  }
-
- /* .navBar .start-elimufund-button{
-  width: 300px;
-  height: 300px;
-  color: white;
- } */
-
+                                              /* ADD STUDENT FORM */
  .Application-container h1 {
   text-align: center;
 }
-
-/* Input Styles
-input[type="text"],
-input[type="checkbox"] {
+.Application-container{
+  top:0;
+  left: 0;
   width: 100%;
-  padding: 10px;
-  border: 2px solid #ccc;
-  border-radius: 5px;
-} */
+  height: 100vh;
+  position: absolute;
+  overflow: auto;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
 
-/* Label Styles */
-/* label {
-  font-weight: bold;
-} */
+
 
 .sponsorship-section{
   display: inline-flex; 
@@ -611,8 +647,37 @@ input[type="checkbox"] {
 /* Separator Styles */
 .separator {
   border-top: 1px solid #ccc;
-  margin: 20px 0;
+  margin: 10px 0;
 }
+
+.addstudentButton{
+  width: 400px;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  background-color: #119e01;
+  font-weight: bold;
+  font-size: medium;
+  color: white;
+  cursor: pointer;
+  
+}
+
+.addStudentForm-label{
+  font-size: medium;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+}
+
+@media(max-width: 768px){
+  .Application-container  .addstudentform-inputs{
+      
+      width: 300px;
+      height: 40px;
+      border-radius: 10px;
+     
+    }}
+  
 
 .addstudentform-inputs{
   gap: 5px;
@@ -625,21 +690,21 @@ input[type="checkbox"] {
   font-size: 16px;
 }
 
-/* Submit Button Styles
-button[type="submit"] {
-  background-color: #82b889;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
-  cursor: pointer;
-} */
+.sponsorship-checkbox input[type="checkbox"]{
+  transform: scale(2);
+  margin-left: 10px;
+ 
+}
 
-/* Optional: Button Hover Effect */
-/* button[type="submit"]:hover {
-  background-color: #119e01;
-} */
+.parent-radio input[type="radio"]{
+  transform: scale(2);
+  margin-left: 10px;
+  padding-left: 10px;
+}
+  
 
+
+                                                              /* Student Dashboard */
 #student-dashboard-container{
 
   top:0;
@@ -650,8 +715,9 @@ button[type="submit"] {
   align-items: center;
   justify-content: center;
   margin: 0;
-  background-image: url('../public/blue.jpg');
+  background-image: url('../public/edu02.png');
   background-size: contain;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 @media(max-width:768px){
@@ -675,8 +741,10 @@ button[type="submit"] {
 .student-profile-section{
   align-items: center;
   border-right: 1px solid white;
-  height: 300px;
+  height: 400px;
   margin: 2rem;
+  background-color: #ffffff;
+  border-radius: 10px;
 
   
  
@@ -695,10 +763,19 @@ button[type="submit"] {
 }
 .profile-links{
  text-decoration: none;
- color: white;
+ color:#43d02a;
 }
 .student-profile-section span{
    padding-right: 2rem ;
+
+}
+
+.student-story-section #dashboardCard{
+ background-color: #ffffff;
+ width: fit-content;
+ height: 400px;
+ border-radius: 20px;
+ box-shadow: 0px 0px 10px rgba(67, 208, 0, 0.7);
 
 }
 
@@ -709,9 +786,9 @@ margin-right: 300px;
 
 }
 
-.student-story-section #title{
+ .title{
   color: #ffffff;
-  font-size: large;
+  font-size: 24px;
   font-weight: bold;
 }
 
