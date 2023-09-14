@@ -1,6 +1,8 @@
 import "../styles.css"
 import udsm_logo from "./udsm_logo.jpg";
 import Ardhi from "./Ardhi.png";
+import Muhas from "./Muhas.png";
+import IFM from "./IFM.png"
 const OngoingCampaignData = [
 
     {
@@ -12,20 +14,20 @@ const OngoingCampaignData = [
 
     {
         img: Ardhi,
-        fundraiserName: "University of Dar es Salaam",
+        fundraiserName: "Ardhi University",
         fundraised: 30 ,
         fundraiserStory:"Lorem ipsum dolor sit amet consectetur adipisicing elit.Quibusdam ad odio debitis maxime fugit dolorenon id iusto odit officiis voluptate ut in saepe aut qui incidunt,veniam corrupti perferendis." ,
     },
 
     {
-        img: udsm_logo,
-        fundraiserName: "University of Dar es Salaam",
+        img: Muhas,
+        fundraiserName: "University of Muhimbili",
         fundraised: 60 ,
         fundraiserStory:"Lorem ipsum dolor sit amet consectetur adipisicing elit.Quibusdam ad odio debitis maxime fugit dolorenon id iusto odit officiis voluptate ut in saepe aut qui incidunt,veniam corrupti perferendis." ,
     },
     {
-        img: udsm_logo,
-        fundraiserName: "University of Dar es Salaam",
+        img: IFM,
+        fundraiserName: "Institute of Finance Management",
         fundraised: 60 ,
         fundraiserStory:"Lorem ipsum dolor sit amet consectetur adipisicing elit.Quibusdam ad odio debitis maxime fugit dolorenon id iusto odit officiis voluptate ut in saepe aut qui incidunt,veniam corrupti perferendis." ,
     },
