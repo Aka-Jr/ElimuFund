@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "../signUp.css";
-import Footer from "../components/Footer";
 import { Link, useNavigate } from "react-router-dom";
 import request from "superagent";
 import axios from "axios";
@@ -193,7 +192,7 @@ const CreateCampaign =()=> {
         :
         <>
         <MdCloudUpload  color="#43d02a" size={60}/>
-        <p>Browse files to upload</p>
+        <div>Browse files to upload</div>
         </>
         }
           </div>
