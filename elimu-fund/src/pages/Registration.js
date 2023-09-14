@@ -165,7 +165,7 @@ const Registration = () => {
             ) : (
               <>
                 <MdCloudUpload color="#01339e" size={60} />
-                <p>Please upload institution logo</p>
+                <div>Please upload institution logo</div>
               </>
             )}
           </div>

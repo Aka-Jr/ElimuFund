@@ -216,7 +216,7 @@ form {
   border-radius: 5px;
   text-align: center;
   font-size: 16px;
-  background-color: rgb(133, 127, 127);
+  background-color: rgb(238, 253, 236);
   border: 1px solid white;
 }
 
@@ -224,7 +224,7 @@ form {
 .payment-label{
   font-size: medium;
   font-weight: bold;
-  color: white;
+  color: rgb(0, 0, 0);
 }
 
 
@@ -286,19 +286,20 @@ form {
   top:0;
   left: 0;
   width: 100%;
-  height: 100vh;
-  position: absolute;
+ 
+
   align-items: center;
   justify-content: center;
   margin: 0;
   text-align: center;
   padding: 20px;
-  background-image: url('../public/money.jpg');
+  background-image: url('../public/edu03.png');
   background-size: contain;
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 .Payment-container h1 {
-color: white;
+color: #43d02a;
 }
 
 
@@ -705,21 +706,100 @@ clear: left;
 
 
                                                               /* Student Dashboard */
-#student-dashboard-container{
-
-  top:0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  position: absolute;
+#studentDashboard-main-contaainer{
+  display: flex;
   align-items: center;
   justify-content: center;
+  top:0;
+  left: 0; 
+  width: 100%;
+  height: 100vh;
+  position: absolute; 
   margin: 0;
   background-image: url('../public/edu02.png');
   background-size: contain;
   background-color: rgba(0, 0, 0, 0.5);
+
 }
 
+
+ #student-dashboard-container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fffefe;
+  width: 70%;
+  height: 70%;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0px 0px 10px rgba(67, 208, 0, 0.7);
+
+}
+
+
+
+.StudentDashboardMenuSection{
+  width: 300px;
+  margin: 2rem;
+  border-radius: 10px;
+  background-color: #fffefe;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 10px rgba(67, 208, 0, 0.7);
+  text-align: center;
+  padding: 10px;
+  height: 400px;
+}
+
+.StudentDashboardMenuSection li, span{
+  list-style: none;
+  align-items: center; 
+  justify-content: space-around;
+  padding: 10px;
+  gap: 10px;
+}
+
+.profile-links{
+  text-decoration: none;
+  color:#43d02a;
+  
+ }
+.StudentDashboardStorySection{
+  width: 300px;
+  margin: 2rem;
+  border-radius: 10px;
+  background-color: #fffefe;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 10px rgba(67, 208, 0, 0.7);
+  text-align: center;
+  padding: 5px;
+  height: 400px;
+}
+
+.StudentDashboardStorySection .fund-progress, p{
+margin-top:50px;
+}
+.StudentDashboardProfilePicture{
+  width: 20%;
+  height: 35%;
+  border-radius: 50%;
+  margin: 2rem;
+ position: relative;
+  background-color: #fffefe;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 10px rgba(67, 208, 0, 0.7);
+background-image: url(../public/Profile_JR.png);
+background-position: center;
+background-size: cover;
+
+}
+
+/* .StudentDashboardProfilePicture img{
+width: inherit;
+} */
 @media(max-width:768px){
   .student-dashboard{
     display: flex;
@@ -729,42 +809,18 @@ clear: left;
     justify-content: center;
   }
 }
-.student-dashboard{
+/* .student-dashboard{
   display: flex;
   flex-direction: row;
   padding: 10px;
   margin: 5px;
   justify-content: space-between;
   /* padding-left: 0px; */
-}
 
-.student-profile-section{
-  align-items: center;
-  border-right: 1px solid white;
-  height: 400px;
-  margin: 2rem;
-  background-color: #ffffff;
-  border-radius: 10px;
 
-  
- 
-}
 
-.student-profile-section li{
-  padding-top: 15px;
-  list-style: none;
-  align-items: center;
-  justify-content: center;
-  margin: 15px;
-  margin-right: 2rem;
 
- 
 
-}
-.profile-links{
- text-decoration: none;
- color:#43d02a;
-}
 .student-profile-section span{
    padding-right: 2rem ;
 
@@ -834,11 +890,14 @@ color: #ffffff;
   top:0;
   left: 0;
   width: 100%;
-  height: 100vh;
   position: absolute;
   margin: 0;
-  background-image: url('../public/wood.jpg');
+  background-image: url('../public/edu02.png');
   background-size: contain;
+  background-color: rgba(0, 0, 0, 0.5);
+
+  align-items: center;
+  justify-content: center;
 }
 
 @media (max-width:768px){
@@ -876,7 +935,7 @@ color: #ffffff;
   border-radius: 5px;
   text-align: center;
   font-size: medium;
-  background-color: rgb(133, 127, 127);
+  background-color: rgb(252, 252, 252);
   border: 1px solid white;
 }
 
@@ -1059,7 +1118,7 @@ justify-content: space-between;
 align-items: center;
 padding: 15px 20px;
 border-radius: 5px;
-background-color: #e9f0ff;
+background-color: rgb(252, 252, 252);
 }
 
 .uploaded-content{
@@ -1085,7 +1144,7 @@ border-radius: 20px;
 text-align: center;
 padding: 10px;
 font-size: large;
-background-color: rgb(133, 127, 127);
+background-color: rgb(252, 252, 252);
 border: 1px solid white;
 
 
