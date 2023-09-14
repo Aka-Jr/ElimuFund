@@ -280,7 +280,6 @@ transition: color .3s ease-in-out;
 
 .root{
     display: flex;
-    
     padding: 10px;
     align-items: center;
     justify-content: center;

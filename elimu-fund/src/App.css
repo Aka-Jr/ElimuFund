@@ -1172,3 +1172,594 @@ border: 1px solid white;
   }
   
 }
+
+                                        /* AdminDashBoardz CSS */
+
+
+.container {
+  display: flex; /* Use flexbox to position the sidebar and content */
+}
+
+.sidebar {
+  width: 180px; /* Adjust the initial width as needed */
+  background-color: #f1f7f0;
+  color: #000;
+  transition: width 0.3s;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  min-width: 60px; /* Ensure a minimum width for collapsed state */
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.sidebar li {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.sidebar svg {
+  margin-right: 10px;
+}
+
+.sidebar span {
+  display: inline-block;
+  transition: opacity 0.3s;
+  opacity: 1;
+  color: #43d02a;
+}
+
+.sidebar span:hover{
+  color: #000;
+}
+
+.sidebar.collapsed {
+  width: 60px; /* Adjust the collapsed width as needed */
+}
+
+.sidebar.collapsed span {
+  opacity: 0;
+}
+
+.toggle-button {
+  cursor: pointer;
+  text-align: center;
+  background-color: #f1f7f0;
+  padding: 5px 0;
+}
+
+.toggle-button span {
+  font-size: 8px;
+}
+
+.content {
+  flex-grow: 1; /* Allow content to grow and take available space */
+  padding: 20px; /* Add padding for spacing */
+}
+
+
+/* Media Query for Smaller Screens (e.g., tablets) */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column; /* Stack sidebar and content for smaller screens */
+  }
+  
+  .sidebar {
+    width: 100%; /* Sidebar takes full width on smaller screens */
+    min-width: 0; /* Remove the minimum width for collapsed state */
+    height: auto; /* Allow sidebar to expand vertically */
+  }
+  
+  .content {
+    width: 100%; /* Content takes full width on smaller screens */
+  }
+}
+
+
+/* App.css */
+
+/* Add styles for the table header */
+.user-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.user-table button{
+  align-items: flex-end;
+  margin-left: 20px;
+}
+
+.user-table th {
+  background-color: #43d02a;
+  color: white;
+  border: 1px solid #666;
+  padding: 8px;
+  text-align: left;
+}
+
+.user-table td,
+.user-table th {
+  border: 1px solid #666;
+  padding: 8px;
+  font-size: 10px;
+}
+
+
+
+/* Add styles for the table container */
+.user-table-container {
+  overflow-x: auto;
+}
+
+/* Add media query for small screens (e.g., mobile) */
+@media (max-width: 768px) {
+  .user-table {
+    font-size: 14px; /* Adjust font size for mobile view */
+  }
+}
+
+
+
+/* Add styles for the campaign table */
+.campaign-table-container {
+  overflow-x: auto;
+  margin-top: 20px;
+}
+
+.campaign-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #ccc;
+}
+
+.campaign-table th {
+  background-color: #43d02a; /* Green header background color */
+  color: white;
+  text-align: left;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+.campaign-table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  font-size: 10px;
+}
+
+td
+.campaign-table button:hover {
+  text-decoration: none;
+}
+
+
+/* Add styles for the donations table */
+.donations-table-container {
+  overflow-x: auto;
+  margin-top: 20px;
+}
+
+.donations-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #ccc;
+}
+
+.donations-table th {
+  background-color: #43d02a; /* Green header background color */
+  color: white;
+  text-align: left;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+.donations-table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+
+/* Add styles for the disbursement table */
+.disbursement-table-container {
+  overflow-x: auto;
+  margin-top: 20px;
+}
+
+.disbursement-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #ccc;
+}
+
+.disbursement-table th {
+  background-color: #43d02a; /* Green header background color */
+  color: white;
+  text-align: left;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+.disbursement-table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+.row-one-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
+
+.first-first-row-card{
+  background-color: rgb(68, 66, 66);
+  border-radius: 15px;
+  padding: 10px 100px 18px 100px;
+  text-align: center;
+  color: #43d02a;
+  margin-top: 100px;
+}
+.second-first-row-card{
+  background-color: rgb(68, 66, 66);
+  border-radius: 15px;
+  padding: 15px;
+  text-align: center;
+  color: #43d02a;
+  margin-top: 100px;
+  }
+
+  .background{
+    height: 560px;
+    border-radius: 20px;
+  }
+
+
+  /* campaigns-table.css */
+.table-responsive {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  border: 1px solid #333; /* Grey-black border */
+  border-radius: 5px;
+  font-size: 10px; /* Reduced font size */
+}
+
+.table thead {
+  background-color: #43d02a; /* Green header background color */
+  color: #fff;
+}
+
+.table th,
+.table td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #333; /* Grey-black border */
+  font-size: 10px; /* Reduced font size */
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #f2f2f2; /* Alternate row background color */
+}
+
+
+.actions {
+  display: flex;
+  align-items: center;
+}
+
+.delete-btn {
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+/* Horizontal scrolling */
+.table-responsive {
+  overflow-x: auto;
+}
+
+
+
+.container {
+  display: flex; /* Use flexbox to position the sidebar and content */
+}
+
+.sidebar {
+  width: 180px; /* Adjust the initial width as needed */
+  background-color: #f1f7f0;
+  color: #000;
+  transition: width 0.3s;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  min-width: 60px; /* Ensure a minimum width for collapsed state */
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.sidebar li {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.sidebar svg {
+  margin-right: 10px;
+}
+
+.sidebar span {
+  display: inline-block;
+  transition: opacity 0.3s;
+  opacity: 1;
+  color: #43d02a;
+}
+
+.sidebar span:hover{
+  color: #000;
+}
+
+.sidebar.collapsed {
+  width: 60px; /* Adjust the collapsed width as needed */
+}
+
+.sidebar.collapsed span {
+  opacity: 0;
+}
+
+.toggle-button {
+  cursor: pointer;
+  text-align: center;
+  background-color: #f1f7f0;
+  padding: 5px 0;
+}
+
+.toggle-button span {
+  font-size: 8px;
+}
+
+.content {
+  flex-grow: 1; /* Allow content to grow and take available space */
+  padding: 20px; /* Add padding for spacing */
+}
+
+
+/* Media Query for Smaller Screens (e.g., tablets) */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column; /* Stack sidebar and content for smaller screens */
+  }
+  
+  .sidebar {
+    width: 100%; /* Sidebar takes full width on smaller screens */
+    min-width: 0; /* Remove the minimum width for collapsed state */
+    height: auto; /* Allow sidebar to expand vertically */
+  }
+  
+  .content {
+    width: 100%; /* Content takes full width on smaller screens */
+  }
+}
+
+
+/* App.css */
+
+/* Add styles for the table header */
+.user-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.user-table button{
+  align-items: flex-end;
+  margin-left: 20px;
+}
+
+.user-table th {
+  background-color: #43d02a;
+  color: white;
+  border: 1px solid #666;
+  padding: 8px;
+  text-align: left;
+}
+
+.user-table td,
+.user-table th {
+  border: 1px solid #666;
+  padding: 8px;
+  font-size: 10px;
+}
+
+
+
+/* Add styles for the table container */
+.user-table-container {
+  overflow-x: auto;
+}
+
+/* Add media query for small screens (e.g., mobile) */
+@media (max-width: 768px) {
+  .user-table {
+    font-size: 14px; /* Adjust font size for mobile view */
+  }
+}
+
+
+
+/* Add styles for the campaign table */
+.campaign-table-container {
+  overflow-x: auto;
+  margin-top: 20px;
+}
+
+.campaign-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #ccc;
+}
+
+.campaign-table th {
+  background-color: #43d02a; /* Green header background color */
+  color: white;
+  text-align: left;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+.campaign-table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  font-size: 10px;
+}
+
+td
+.campaign-table button:hover {
+  text-decoration: none;
+}
+
+
+/* Add styles for the donations table */
+.donations-table-container {
+  overflow-x: auto;
+  margin-top: 20px;
+}
+
+.donations-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #ccc;
+}
+
+.donations-table th {
+  background-color: #43d02a; /* Green header background color */
+  color: white;
+  text-align: left;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+.donations-table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+
+/* Add styles for the disbursement table */
+.disbursement-table-container {
+  overflow-x: auto;
+  margin-top: 20px;
+}
+
+.disbursement-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #ccc;
+}
+
+.disbursement-table th {
+  background-color: #43d02a; /* Green header background color */
+  color: white;
+  text-align: left;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+.disbursement-table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+.row-one-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
+
+.first-first-row-card{
+  background-color: rgb(68, 66, 66);
+  border-radius: 15px;
+  padding: 10px 100px 18px 100px;
+  text-align: center;
+  color: #43d02a;
+  margin-top: 100px;
+}
+.second-first-row-card{
+  background-color: rgb(68, 66, 66);
+  border-radius: 15px;
+  padding: 15px;
+  text-align: center;
+  color: #43d02a;
+  margin-top: 100px;
+  }
+
+  .background{
+    height: 560px;
+    border-radius: 20px;
+  }
+
+
+  /* campaigns-table.css */
+.table-responsive {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  border: 1px solid #333; /* Grey-black border */
+  border-radius: 5px;
+  font-size: 10px; /* Reduced font size */
+}
+
+.table thead {
+  background-color: #43d02a; /* Green header background color */
+  color: #fff;
+}
+
+.table th,
+.table td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #333; /* Grey-black border */
+  font-size: 10px; /* Reduced font size */
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #f2f2f2; /* Alternate row background color */
+}
+
+
+.actions {
+  display: flex;
+  align-items: center;
+}
+
+.delete-btn {
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+/* Horizontal scrolling */
+.table-responsive {
+  overflow-x: auto;
+}

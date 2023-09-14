@@ -27,7 +27,7 @@ const Login = () => {
         console.log(role);
 
         if (role== 1){
-          return navigate('');
+          return navigate('/admin');
         }
         else if(role == 2){
           return navigate('/UniversityDashboard');

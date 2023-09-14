@@ -453,3 +453,64 @@ app.post("/students/signUp", (req, res) => {
     });
   });
 });
+
+// AdminDashboard APIz
+
+
+// Fetch user data
+app.get('/fetch', (req, res) => {
+  db.query('SELECT * FROM student', (err, result, fields) => {
+    if (err) {
+      console.log(err);
+      res.status(500).json({ error: 'Internal Server Error' });
+    } else {
+      res.json(result);
+    }
+  });
+});
+
+// Delete a user by student_id
+app.delete('/delete/:userId', (req, res) => {
+  const userId = req.params.userId;
+
+  // Perform the user deletion in your MySQL database using student_id
+  db.query('DELETE FROM student WHERE student_id = ?', [userId], (err, result) => {
+    if (err) {
+      console.error(err);
+      res.status(500).json({ error: 'Internal Server Error' });
+    } else if (result.affectedRows === 0) {
+      // No user found with the specified student_id
+      res.status(404).json({ error: 'User not found' });
+    } else {
+      res.json({ message: 'User deleted successfully' });
+    }
+  });
+});
+
+// Fetch campaigns data
+app.get('/fetchCampaigns', (req, res) => {
+  db.query('SELECT * FROM campaigns', (err, result, fields) => {
+    if (err) {
+      console.log(err);
+      res.status(500).json({ error: 'Internal Server Error' });
+    } else {
+      res.json(result);
+    }
+  });
+});
+
+// Deleting campaigns by sn
+app.delete('/deleteCampaign/:campaignId', (req, res) => {
+  const campaignId = req.params.campaignId;
+
+  // Use the campaignId to delete the campaign from your database
+  db.query('DELETE FROM campaigns WHERE sn = ?', [campaignId], (err, result) => {
+    if (err) {
+      console.error(err);
+      res.status(500).send('Error deleting campaign');
+    } else {
+      console.log(`Campaign with ID ${campaignId} deleted successfully`);
+      res.sendStatus(200); // Respond with a success status code
+    }
+  });
+});
