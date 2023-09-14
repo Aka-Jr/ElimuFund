@@ -22,7 +22,20 @@ const Login = () => {
 
       if (response.body.error === false) {
         toast.success("Login successful");
-        navigate("/studentDashboard"); // Implement navigation based on user role
+
+        const { role } = response.body; // Destructure the role from response.body
+        console.log(role);
+
+        if (role== 1){
+          return navigate('');
+        }
+        else if(role == 2){
+          return navigate('/UniversityDashboard');
+        }
+        else{
+          return navigate('/studentDashboard');
+        }
+        // navigate("/studentDashboard"); // Implement navigation based on user role
       } else {
         toast.error("Invalid credentials");
       }

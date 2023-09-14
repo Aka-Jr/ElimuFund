@@ -14,7 +14,7 @@
 } */
 
 .dual-color{
-  background: linear-gradient(to right, rgb(233, 230, 230) 50%, rgb(9, 61, 2) 50%);
+  background: linear-gradient(to right, rgb(233, 230, 230) 20%, rgb(9, 61, 2) 80%);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;

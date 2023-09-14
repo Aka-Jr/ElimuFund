@@ -4,12 +4,38 @@ import 'react-toastify/dist/ReactToastify.css';
 import '../App.css';
 
 const AddStudentForm = () => {
+  const [studentData, setStudentData] = useState({
+    first_name: "",
+    last_name: "",
+    registration_number: "",
+    registration_date: "",
+    email: "",
+    phone_no: "",
+    candidates_disability: "",
+    mother_disability: "",
+    father_disability: "",
+    hasSponsorship: false,
+    parents: {
+      father: false,
+      mother: false,
+      both_parents: false,
+      none: false,
+    },
+  });
+
+
+
+const AddStudentForm = () => {
   const [hasSponsorship, setHasSponsorship] = useState(false);
   const [parentType, setParentType] = useState('none');
 
   const toggleSponsorship = () => {
-    setHasSponsorship(!hasSponsorship);
+    setStudentData({
+      ...studentData,
+      hasSponsorship: !studentData.hasSponsorship,
+    });
   };
+
 
   const handleParentChange = (event) => {
     const { value } = event.target;
@@ -71,6 +97,28 @@ const AddStudentForm = () => {
     // ...
 
     toast.success('Form submitted successfully');
+
+  };
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setStudentData({
+      ...studentData,
+      [name]: value,
+    });
+  };
+
+  const handleAddStudentForm = async (event) => {
+    event.preventDefault();
+    try {
+      const response = await axios.post(
+        "http://localhost:5000/valid_candidate/register",
+        studentData
+      );
+      console.log("Response:", response.data);
+    } catch (error) {
+      console.error("Error:", error);
+    }
   };
 
   return (
@@ -78,54 +126,66 @@ const AddStudentForm = () => {
       <h1>
         <center>Application Form</center>
       </h1>
+
       <form id="addStudentForm" onSubmit={handleFormSubmit}>
         <div className="name-inputs">
           <input
             type="text"
-            name="FirstName"
+            name="first_name"
             placeholder="First Name"
+            value={studentData.first_name}
+            onChange={handleInputChange}
             className="addstudentform-inputs"
           />
           <input
             type="text"
-            name="Surname"
+            name="last_name"
+            value={studentData.last_name}
             placeholder="Surname"
+            onChange={handleInputChange}
             className="addstudentform-inputs"
           />
         </div>
         <div className="registration">
           <input
             type="text"
-            name="RegNo"
+            name="registration_number"
+            value={studentData.registration_number}
             placeholder="Reg NO"
+            onChange={handleInputChange}
             className="addstudentform-inputs"
           />
           <input
             type="text"
-            name="Email"
+            name="email"
             placeholder="Email"
+            value={studentData.email}
+            onChange={handleInputChange}
             className="addstudentform-inputs"
           />
         </div>
         <div className="phone">
           <input
             type="text"
-            name="Phone"
+            name="phone_no"
             placeholder="Phone"
+            value={studentData.phone_no}
+            onChange={handleInputChange}
             className="addstudentform-inputs"
           />
           <input
             type="text"
-            name="YearOfStudy"
-            placeholder="Year of study"
+            name="registration_date"
+            placeholder="registered year"
+            value={studentData.registration_date}
+            onChange={handleInputChange}
             className="addstudentform-inputs"
           />
         </div>
 
         <div className="separator"></div>
-        {/* Sponsorship section */}
         <div className="sponsorship-section">
-          <label className="addStudentForm-label" htmlFor="hasSponsorship">
+
             Does the student have any sponsorship?
           </label>
           <div className="sponsorship-checkbox">
@@ -133,14 +193,14 @@ const AddStudentForm = () => {
               type="checkbox"
               id="hasSponsorship"
               name="hasSponsorship"
-              checked={hasSponsorship}
+
               onChange={toggleSponsorship}
             />
           </div>
         </div>
 
-        {/* Parents section */}
         <div className="parents-section">
+
           <label className="addStudentForm-label">
             Parents that the student has:
           </label>
@@ -199,35 +259,13 @@ const AddStudentForm = () => {
         <div className="studentdisability">
           <input
             type="text"
-            name="studentdisability"
+            name="candidates_disability"
+            value={studentData.candidates_disability}
             className="addstudentform-inputs"
+            onChange={handleInputChange}
           />
         </div>
 
-        <label className="addStudentForm-label">Parent's disability:</label>
-
-        <div className="father">
-          <input
-            type="text"
-            id="father"
-            name="father"
-            placeholder="Father's disability"
-            className="addstudentform-inputs"
-          />
-        </div>
-
-        <div className="mother">
-          <input
-            type="text"
-            id="mother"
-            name="mother"
-            placeholder="Mother's disability"
-            className="addstudentform-inputs"
-          />
-        </div>
-
-        <hr className="separator" />
-        <button type="submit" className="addstudentButton">
           Submit
         </button>
         <hr className="separator" />
