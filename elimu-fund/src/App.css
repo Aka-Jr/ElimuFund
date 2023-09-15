@@ -751,23 +751,21 @@ clear: left;
 
 .StudentDashboardMenuSection{
   width: 300px;
-  margin: 2rem;
+  margin: 1rem;
   border-radius: 10px;
   background-color: #fffefe;
   align-items: center;
   justify-content: center;
   box-shadow: 0px 0px 10px rgba(67, 208, 0, 0.7);
-  text-align: center;
-  padding: 10px;
+  padding: 5px;
   height: 400px;
 }
 
-.StudentDashboardMenuSection li, span{
+.StudentDashboardMenuSection li, .dashboard-icons{
   list-style: none;
-  align-items: center; 
-  justify-content: space-around;
-  padding: 10px;
-  gap: 10px;
+  padding-bottom: 20px;
+  padding-top: 20px;
+ margin-right: 5px;
 }
 
 .profile-links{
@@ -801,10 +799,15 @@ margin-top:50px;
   align-items: center;
   justify-content: center;
   box-shadow: 0px 0px 10px rgba(67, 208, 0, 0.7);
-background-image: url(../public/Profile_JR.png);
 background-position: center;
 background-size: cover;
 
+}
+
+.student-dashboard-img{
+height: 100%;
+width: 100%;
+border-radius: 50%;
 }
 
 /* .StudentDashboardProfilePicture img{

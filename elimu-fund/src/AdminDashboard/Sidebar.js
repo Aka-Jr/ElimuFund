@@ -1,10 +1,33 @@
 import React, { useState } from 'react';
 import { FiHome, FiUsers, FiLogOut, FiDollarSign, FiBarChart2, FiMenu, FiDatabase, FiSend, FiHelpCircle } from 'react-icons/fi';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate  } from "react-router-dom";
+import "../App.css";
+import request from "superagent";
+import { toast } from "react-toastify";
 
 import '../App.css';
+import Logout from '../components/Logout';
 
 const Sidebar = () => {
+
+  const navigate = useNavigate();
+    
+  const handleLogout = async () => {
+    try {
+      const response = await request.post("http://localhost:5000/logout");
+
+      if (response.body.error === false) {
+        toast.success("Logged out successfully");
+        navigate("/login"); // Redirect to the login page
+      } else {
+        toast.error("Logout failed");
+      }
+    } catch (error) {
+      console.error(error);
+      toast.error("An error occurred during logout");
+    }
+  };
+
   const [isExpanded, setIsExpanded] = useState(true);
 
   const toggleSidebar = () => {
@@ -60,8 +83,11 @@ const Sidebar = () => {
           </Link>
         </li>
         <li>
-          <Link to="/logout">
+          <Link  
+          onClick={handleLogout}
+          >
             <FiLogOut color="#000" />
+            
             {isExpanded && <span>Logout</span>}
           </Link>
         </li>
