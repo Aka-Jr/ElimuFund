@@ -3,6 +3,8 @@ import "../styles.css";
 
 const StudentDashboardCard = (props) => {
 
+    
+
     return(
     <>
         {props.details.map((value, index) =>(

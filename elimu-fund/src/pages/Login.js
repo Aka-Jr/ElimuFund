@@ -10,6 +10,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
+
   const handleLogin = async () => {
     try {
       if (!identity || !password) {
@@ -44,6 +45,8 @@ const Login = () => {
       toast.error("An error occurred during login");
     }
   };
+
+  
 
   return (
     <div className="login-container">
