@@ -17,7 +17,7 @@ import StudentCampaignData from "./StudentCampaignData";
 
 const StudentDashboard = () => {
     const navigate = useNavigate();
-
+    
     const handleLogout = async () => {
         try {
           const response = await request.post("http://localhost:5000/logout");
@@ -92,7 +92,7 @@ const StudentDashboard = () => {
               </span>
               <Link 
               className="profile-links" 
-             
+              to="/login"
               onClick={handleLogout}
               >
                 LogOut
